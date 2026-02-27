@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
+import vishnu_logo from '../../assets/vishnu_logo.png';
+import sac_logo from '../../assets/sac_logo.png';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +45,21 @@ export function Navbar() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-center h-20">
+        <div className="flex items-center justify-between h-20">
+          {/* Left Logo - Vishnu */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center"
+          >
+            <img 
+              src={vishnu_logo} 
+              alt="BVRIT Hyderabad" 
+              className="h-14 w-auto object-contain"
+            />
+          </motion.div>
+
           {/* Navigation Items - Centered with 32px spacing */}
           <div className="flex items-center" style={{ gap: '32px' }}>
             {navItems.map((item, index) => (
@@ -60,11 +76,8 @@ export function Navbar() {
                     color: isActive(item.path) ? '#00FFFF' : '#E5E5E5',
                     textShadow: isActive(item.path) 
                       ? `
-                        0 0 10px rgba(0, 255, 255, 1),
-                        0 0 20px rgba(0, 255, 255, 0.8),
-                        0 0 30px rgba(0, 255, 255, 0.5),
-                        -1px 0 0 rgba(255, 0, 0, 0.7),
-                        1px 0 0 rgba(0, 0, 255, 0.5)
+                        0 0 8px rgba(0, 255, 255, 0.4),
+                        0 0 12px rgba(0, 255, 255, 0.2)
                       `
                       : 'none',
                   }}
@@ -80,11 +93,8 @@ export function Navbar() {
                       letterSpacing: '0.08em',
                       color: '#39FF14',
                       textShadow: `
-                        0 0 10px rgba(57, 255, 20, 1),
-                        0 0 20px rgba(57, 255, 20, 0.8),
-                        0 0 30px rgba(57, 255, 20, 0.5),
-                        -1px 0 0 rgba(255, 0, 0, 0.8),
-                        1px 0 0 rgba(0, 0, 255, 0.6)
+                        0 0 8px rgba(57, 255, 20, 0.4),
+                        0 0 12px rgba(57, 255, 20, 0.2)
                       `,
                     }}
                     aria-hidden="true"
@@ -152,6 +162,20 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+
+          {/* Right Logo - SAC */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center"
+          >
+            <img 
+              src={sac_logo} 
+              alt="Student Affairs Council" 
+              className="h-14 w-auto object-contain"
+            />
+          </motion.div>
         </div>
       </div>
     </nav>

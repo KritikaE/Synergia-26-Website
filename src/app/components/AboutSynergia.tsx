@@ -136,27 +136,7 @@ export function AboutSynergia() {
             }}
           >
             <p>
-              Get ready to{' '}
-              <span
-                className="font-semibold"
-                style={{
-                  color: '#ff00ff',
-                  textShadow: '0 0 10px rgba(255, 0, 255, 0.5)',
-                }}
-              >
-                ignite your passion
-              </span>
-              , showcase your{' '}
-              <span
-                className="font-semibold"
-                style={{
-                  color: '#00ffff',
-                  textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
-                }}
-              >
-                talent
-              </span>
-              , and experience the ultimate fusion of{' '}
+              Experience the ultimate fusion of{' '}
               <span
                 className="font-semibold"
                 style={{
@@ -166,10 +146,9 @@ export function AboutSynergia() {
               >
                 technology and culture
               </span>{' '}
-              at Synergia 2025! This{' '}
+              at Synergia 2026! This{' '}
               <span className="font-semibold text-white">three-day extravaganza</span> at BVRIT
-              Hyderabad College of Engineering for Women brings together thrilling competitions,
-              mesmerizing performances, and{' '}
+              Hyderabad brings together thrilling competitions, mesmerizing performances, and{' '}
               <span
                 className="font-semibold"
                 style={{
@@ -177,16 +156,13 @@ export function AboutSynergia() {
                   textShadow: '0 0 10px rgba(57, 255, 20, 0.5)',
                 }}
               >
-                20+ exciting stalls
+                exciting events
               </span>{' '}
-              filled with fun and creativity.
+              filled with innovation and creativity.
             </p>
 
             <p>
-              With the{' '}
-              <span className="font-semibold text-white">first two days open to all colleges</span>,
-              Synergia is your chance to network, compete, and create unforgettable memories. Whether
-              you're a{' '}
+              Whether you're a{' '}
               <span
                 className="font-semibold"
                 style={{
@@ -194,7 +170,7 @@ export function AboutSynergia() {
                   textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
                 }}
               >
-                tech wizard
+                tech enthusiast
               </span>
               , an{' '}
               <span
@@ -214,19 +190,9 @@ export function AboutSynergia() {
                   textShadow: '0 0 10px rgba(255, 20, 147, 0.5)',
                 }}
               >
-                thrill-seeker
+                performer
               </span>
-              , there's something for everyone!{' '}
-              <span
-                className="font-bold text-lg"
-                style={{
-                  color: '#ffff00',
-                  textShadow: '0 0 15px rgba(255, 255, 0, 0.6)',
-                }}
-              >
-                Register now
-              </span>{' '}
-              and get ready for surprises, prizes, and an experience like never before!
+              , there's something for everyone!
             </p>
           </motion.div>
 

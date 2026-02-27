@@ -1,8 +1,6 @@
 import { motion } from 'motion/react';
 import { Sparkles, Calendar, MapPin } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
-import bvrithLogo from 'figma:asset/4ca561598c269bdc372d92c26a2c32913d1d8afc.png';
-import sacLogo from 'figma:asset/88981308929248bd59abca996b18d809d9a8b8f1.png';
 
 export function Hero() {
   return (
@@ -47,85 +45,13 @@ export function Hero() {
           <Sparkles className="inline-block w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00ffff] mb-4 animate-pulse" />
         </motion.div>
 
-        {/* Glassmorphism Container with Logos */}
+        {/* Event Title Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-8 sm:mb-12 flex flex-col items-center"
         >
-          {/* Glassmorphism Card Container */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            className="relative mb-6 rounded-xl overflow-hidden"
-            style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(0, 255, 255, 0.3)',
-              boxShadow: `
-                0 0 40px rgba(0, 255, 255, 0.3),
-                0 0 80px rgba(255, 0, 255, 0.2),
-                inset 0 0 40px rgba(255, 255, 255, 0.05)
-              `,
-            }}
-          >
-            {/* Inner glow effect */}
-            <div 
-              className="absolute inset-0 opacity-20 pointer-events-none"
-              style={{
-                background: 'radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.2) 0%, transparent 70%)',
-              }}
-            ></div>
-
-            {/* Logo Container with 64px spacing and 40px padding */}
-            <div 
-              className="relative flex items-center justify-center p-10"
-              style={{ gap: '64px' }}
-            >
-              {/* BVRIT Logo */}
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col items-center"
-              >
-                <div 
-                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-white/10 p-3 flex items-center justify-center"
-                  style={{
-                    boxShadow: '0 0 20px rgba(255, 0, 255, 0.3)',
-                  }}
-                >
-                  <img 
-                    src={bvrithLogo} 
-                    alt="BVRIT Hyderabad" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </motion.div>
-
-              {/* SAC Logo */}
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: -2 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col items-center"
-              >
-                <div 
-                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-white/10 p-3 flex items-center justify-center"
-                  style={{
-                    boxShadow: '0 0 20px rgba(0, 255, 255, 0.3)',
-                  }}
-                >
-                  <img 
-                    src={sacLogo} 
-                    alt="Student Affairs Council" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
           {/* Professional Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
