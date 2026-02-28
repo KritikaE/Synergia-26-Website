@@ -1,28 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react';
-import { useState } from 'react';
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Message sent! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const contactInfo = [
     {
@@ -76,85 +55,7 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="neon-border-purple bg-black/60 backdrop-blur-sm p-6 sm:p-8 md:p-10 pixel-corners">
-              <h3 className="font-['Orbitron'] text-xl sm:text-2xl md:text-3xl text-[#ff00ff] mb-6 sm:mb-8">
-                Send Message
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                {/* Name Input */}
-                <div>
-                  <label className="font-['Rajdhani'] text-sm sm:text-base text-[#00ffff] mb-2 block">
-                    NAME
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-black/60 border-2 border-[#00ffff] text-white px-4 py-3 font-['Rajdhani'] text-sm sm:text-base focus:border-[#ff00ff] focus:outline-none transition-all duration-300 pixel-corners"
-                    style={{
-                      boxShadow: '0 0 10px rgba(0, 255, 255, 0.3)',
-                    }}
-                  />
-                </div>
-
-                {/* Email Input */}
-                <div>
-                  <label className="font-['Rajdhani'] text-sm sm:text-base text-[#00ffff] mb-2 block">
-                    EMAIL
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-black/60 border-2 border-[#00ffff] text-white px-4 py-3 font-['Rajdhani'] text-sm sm:text-base focus:border-[#ff00ff] focus:outline-none transition-all duration-300 pixel-corners"
-                    style={{
-                      boxShadow: '0 0 10px rgba(0, 255, 255, 0.3)',
-                    }}
-                  />
-                </div>
-
-                {/* Message Input */}
-                <div>
-                  <label className="font-['Rajdhani'] text-sm sm:text-base text-[#00ffff] mb-2 block">
-                    MESSAGE
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full bg-black/60 border-2 border-[#00ffff] text-white px-4 py-3 font-['Rajdhani'] text-sm sm:text-base focus:border-[#ff00ff] focus:outline-none transition-all duration-300 resize-none pixel-corners"
-                    style={{
-                      boxShadow: '0 0 10px rgba(0, 255, 255, 0.3)',
-                    }}
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="neon-button neon-border-pink bg-black/60 w-full px-6 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base text-[#ff1493] hover:bg-[#ff1493]/20 transition-all duration-300 pixel-corners"
-                >
-                  TRANSMIT MESSAGE
-                </button>
-              </form>
-            </div>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}

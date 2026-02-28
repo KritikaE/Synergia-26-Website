@@ -5,7 +5,6 @@ import { SchedulePage } from './pages/SchedulePage';
 import { StartupHubPage } from './pages/StartupHubPage';
 import { SponsorsPage } from './pages/SponsorsPage';
 import { ContactPage } from './pages/ContactPage';
-import { ProfilePage } from './pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -31,9 +30,5 @@ export const router = createBrowserRouter([
   {
     path: '/contact',
     Component: ContactPage,
-  },
-  {
-    path: '/profile',
-    Component: ProfilePage,
   },
 ]);

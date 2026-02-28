@@ -15,7 +15,6 @@ export function Navbar() {
     { path: '/sponsors', label: 'Sponsors' },
     { path: '/startup-hub', label: 'Startup Hub' },
     { path: '/contact', label: 'Contact' },
-    { path: '/profile', label: 'Profile' },
   ];
 
   useEffect(() => {
