@@ -8,19 +8,8 @@ export default function App() {
   const [showLoader, setShowLoader] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    // Check if user has seen loader before (optional - can be removed if you want loader every time)
-    const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
-    if (hasSeenLoader) {
-      setShowLoader(false);
-      setShowContent(true);
-    }
-  }, []);
-
   const handleLoaderComplete = () => {
-    sessionStorage.setItem('hasSeenLoader', 'true');
     setShowLoader(false);
-    // Delay content appearance for smooth transition
     setTimeout(() => {
       setShowContent(true);
     }, 100);
