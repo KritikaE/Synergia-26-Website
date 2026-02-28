@@ -1,124 +1,70 @@
-/* Neon glow effects for Synergia */
+/* Refined neon effects for Synergia - Toned down for readability */
 
+/* Primary accent: Cyan (main brand color) */
+.neon-text-cyan {
+  color: #00d9ff;
+  text-shadow: 
+    0 0 4px rgba(0, 217, 255, 0.4),
+    0 0 8px rgba(0, 217, 255, 0.2);
+}
+
+/* Secondary accent: Purple */
 .neon-text-purple {
-  color: #ff00ff;
+  color: #a855f7;
   text-shadow: 
-    0 0 8px rgba(255, 0, 255, 0.6),
-    0 0 16px rgba(255, 0, 255, 0.3);
+    0 0 4px rgba(168, 85, 247, 0.4),
+    0 0 8px rgba(168, 85, 247, 0.2);
 }
 
-.neon-text-pink {
-  color: #ff1493;
-  text-shadow: 
-    0 0 8px rgba(255, 20, 147, 0.6),
-    0 0 16px rgba(255, 20, 147, 0.3);
-}
-
-.neon-text-blue {
-  color: #00ffff;
-  text-shadow: 
-    0 0 8px rgba(0, 255, 255, 0.6),
-    0 0 16px rgba(0, 255, 255, 0.3);
+/* Subtle borders - use sparingly */
+.neon-border-cyan {
+  border: 1px solid rgba(0, 217, 255, 0.5);
+  box-shadow: 
+    0 0 8px rgba(0, 217, 255, 0.2),
+    inset 0 0 8px rgba(0, 217, 255, 0.05);
 }
 
 .neon-border-purple {
-  border: 2px solid #ff00ff;
+  border: 1px solid rgba(168, 85, 247, 0.5);
   box-shadow: 
-    0 0 10px #ff00ff,
-    0 0 20px #ff00ff,
-    inset 0 0 10px rgba(255, 0, 255, 0.2);
+    0 0 8px rgba(168, 85, 247, 0.2),
+    inset 0 0 8px rgba(168, 85, 247, 0.05);
 }
 
-.neon-border-pink {
-  border: 2px solid #ff1493;
+/* Hover effects - only on interaction */
+.neon-hover:hover {
   box-shadow: 
-    0 0 10px #ff1493,
-    0 0 20px #ff1493,
-    inset 0 0 10px rgba(255, 20, 147, 0.2);
-}
-
-.neon-border-blue {
-  border: 2px solid #00ffff;
-  box-shadow: 
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    inset 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.neon-glow-hover:hover {
-  box-shadow: 
-    0 0 20px currentColor,
-    0 0 40px currentColor,
-    0 0 60px currentColor;
+    0 0 12px rgba(0, 217, 255, 0.3),
+    0 0 24px rgba(0, 217, 255, 0.15);
   transition: box-shadow 0.3s ease;
 }
 
-/* Animated background grid */
+/* Subtle background grid - reduced opacity */
 .arcade-grid {
   background-image: 
-    linear-gradient(rgba(255, 0, 255, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 0, 255, 0.3) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
+    linear-gradient(rgba(0, 217, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-@keyframes gridMove {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-/* Pixel effect */
+/* Simplified corners - less aggressive */
 .pixel-corners {
-  clip-path: polygon(
-    0 8px, 8px 8px, 8px 0,
-    calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
-    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
-    8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
-  );
+  border-radius: 4px;
 }
 
-/* Glowing button effect */
+/* Button with subtle glow */
 .neon-button {
   position: relative;
-  overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid rgba(0, 217, 255, 0.3);
 }
 
-.neon-button::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 0, 255, 0.3),
-    transparent
-  );
-  transform: rotate(45deg);
-  transition: all 0.5s ease;
+.neon-button:hover {
+  border-color: rgba(0, 217, 255, 0.6);
+  box-shadow: 0 0 16px rgba(0, 217, 255, 0.2);
 }
 
-.neon-button:hover::before {
-  animation: shine 1s ease infinite;
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
-
-/* Scanline effect */
+/* Minimal scanlines - very subtle */
 .scanlines {
   position: relative;
 }
@@ -132,33 +78,20 @@
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1) 1px,
-    transparent 1px,
-    transparent 2px
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
   );
   pointer-events: none;
 }
 
-/* Glitch effect */
-@keyframes glitch {
-  0% {
-    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
-  }
-  25% {
-    text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
-  }
-  50% {
-    text-shadow: 2px 0 #00ffff, -2px 0 #ff1493;
-  }
-  75% {
-    text-shadow: -2px 0 #00ffff, 2px 0 #ff1493;
-  }
-  100% {
-    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
-  }
-}
-
+/* Remove old classes */
+.neon-text-pink,
+.neon-text-blue,
+.neon-border-pink,
+.neon-border-blue,
+.neon-glow-hover,
 .glitch-text {
-  animation: glitch 3s ease-in-out infinite;
+  /* Deprecated - use neon-text-cyan or neon-text-purple instead */
 }
