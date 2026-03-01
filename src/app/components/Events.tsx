@@ -329,6 +329,12 @@ export function Events({ onEventClick }: EventsProps) {
     },
   ];
 
+  const categories = ['Technical', 'Cultural', 'Workshop'] as const;
+  const eventsByCategory = categories.map(cat => ({
+    category: cat,
+    events: events.filter(e => e.category === cat)
+  }));
+
   return (
     <section id="events" className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-[#0a0015] overflow-hidden">
       {/* Background Effects */}
@@ -353,69 +359,63 @@ export function Events({ onEventClick }: EventsProps) {
           </p>
         </motion.div>
 
-        {/* Events Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {events.map((event, index) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+        {/* Events by Category */}
+        {eventsByCategory.map(({ category, events: categoryEvents }) => (
+          <div key={category} className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ y: -10 }}
-              className={`${event.borderColor} bg-black/60 backdrop-blur-sm p-6 sm:p-8 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80`}
+              className="font-['Press_Start_2P'] text-lg sm:text-xl md:text-2xl mb-8"
+              style={{ color: '#87CEEB' }}
             >
-              {/* Icon */}
-              <div
-                className="mb-4 sm:mb-6"
-                style={{ color: event.color }}
-              >
-                <event.icon className="w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-
-              {/* Category Badge */}
-              <div className="inline-block mb-3 sm:mb-4">
-                <span
-                  className="font-['Press_Start_2P'] text-[8px] sm:text-[10px] px-2 sm:px-3 py-1 border-2 pixel-corners"
-                  style={{
-                    color: event.color,
-                    borderColor: event.color,
-                  }}
+              {category}
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+              {categoryEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  whileHover={{ y: -10 }}
+                  className={`${event.borderColor} bg-black/60 backdrop-blur-sm p-6 sm:p-8 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80`}
+                  onClick={() => onEventClick?.(event)}
                 >
-                  {event.category.toUpperCase()}
-                </span>
-              </div>
+                  <div className="mb-4 sm:mb-6" style={{ color: event.color }}>
+                    <event.icon className="w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300" />
+                  </div>
 
-              {/* Event Title */}
-              <h3
-                className="font-['Orbitron'] text-base sm:text-lg md:text-xl mb-3 sm:mb-4"
-                style={{
-                  color: event.color,
-                  textShadow: `0 0 10px ${event.color}`,
-                }}
-              >
-                {event.title}
-              </h3>
+                  <h3
+                    className="font-['Orbitron'] text-base sm:text-lg md:text-xl mb-3 sm:mb-4"
+                    style={{
+                      color: event.color,
+                      textShadow: `0 0 10px ${event.color}`,
+                    }}
+                  >
+                    {event.title}
+                  </h3>
 
-              {/* Description */}
-              <p className="font-['Rajdhani'] text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
-                {event.description}
-              </p>
+                  <p className="font-['Rajdhani'] text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">
+                    {event.description}
+                  </p>
 
-              {/* Action Button */}
-              <button
-                onClick={() => onEventClick?.(event)}
-                className="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
-                style={{
-                  color: event.color,
-                  borderColor: event.color,
-                }}
-              >
-                VIEW DETAILS
-              </button>
-            </motion.div>
-          ))}
-        </div>
+                  <button
+                    className="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
+                    style={{
+                      color: event.color,
+                      borderColor: event.color,
+                    }}
+                  >
+                    VIEW DETAILS
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
