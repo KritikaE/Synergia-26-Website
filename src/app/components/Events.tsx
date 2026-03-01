@@ -351,11 +351,11 @@ export function Events({ onEventClick }: EventsProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="font-['Press_Start_2P'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl neon-text-pink mb-4 sm:mb-6">
-            GAME MODES
+          <h2 className="font-['Press_Start_2P'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6" style={{ color: '#ff1493', textShadow: '0 0 15px rgba(255, 20, 147, 0.5)' }}>
+            EVENTS
           </h2>
           <p className="font-['Rajdhani'] text-base sm:text-lg md:text-xl text-[#00ffff] max-w-2xl mx-auto px-4">
-            Choose your adventure • Multiple categories • Epic prizes
+            Compete • Create • Celebrate
           </p>
         </motion.div>
 
@@ -366,8 +366,8 @@ export function Events({ onEventClick }: EventsProps) {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="font-['Press_Start_2P'] text-lg sm:text-xl md:text-2xl mb-8"
-              style={{ color: '#87CEEB' }}
+              className="font-['Press_Start_2P'] text-xl sm:text-2xl md:text-3xl mb-8"
+              style={{ color: '#87CEEB', textShadow: '0 0 10px rgba(135, 206, 235, 0.4)' }}
             >
               {category}
             </motion.h3>
@@ -381,7 +381,8 @@ export function Events({ onEventClick }: EventsProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ y: -10 }}
-                  className={`${event.borderColor} bg-black/60 backdrop-blur-sm p-6 sm:p-8 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80`}
+                  className="bg-black/60 backdrop-blur-sm p-6 sm:p-8 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80 border-2"
+                  style={{ borderColor: event.color + '60' }}
                   onClick={() => onEventClick?.(event)}
                 >
                   <div className="mb-4 sm:mb-6" style={{ color: event.color }}>
@@ -389,11 +390,8 @@ export function Events({ onEventClick }: EventsProps) {
                   </div>
 
                   <h3
-                    className="font-['Orbitron'] text-base sm:text-lg md:text-xl mb-3 sm:mb-4"
-                    style={{
-                      color: event.color,
-                      textShadow: `0 0 10px ${event.color}`,
-                    }}
+                    className="font-['Orbitron'] text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4"
+                    style={{ color: event.color }}
                   >
                     {event.title}
                   </h3>
