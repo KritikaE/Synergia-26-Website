@@ -2,6 +2,47 @@ import React, { useMemo, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { SYNERGIA_GRID } from '../constants';
 
+// Import Synergia 25 photos
+import img1 from '../../assets/Synergia25/SRI06615.JPG';
+import img2 from '../../assets/Synergia25/SRI06786.JPG';
+import img3 from '../../assets/Synergia25/SRI06822.JPG';
+import img4 from '../../assets/Synergia25/SRI06849.JPG';
+import img5 from '../../assets/Synergia25/SRI06850.JPG';
+import img6 from '../../assets/Synergia25/SRI06851.JPG';
+import img7 from '../../assets/Synergia25/SRI06867.JPG';
+import img8 from '../../assets/Synergia25/SRI06871.JPG';
+import img9 from '../../assets/Synergia25/SRI06898.JPG';
+import img10 from '../../assets/Synergia25/SRI06901.JPG';
+import img11 from '../../assets/Synergia25/SRI06902.JPG';
+import img12 from '../../assets/Synergia25/SRI06922.JPG';
+import img13 from '../../assets/Synergia25/SRI06936.JPG';
+import img14 from '../../assets/Synergia25/SRI06960.JPG';
+import img15 from '../../assets/Synergia25/SRI07122.JPG';
+import img16 from '../../assets/Synergia25/SRI07153.JPG';
+import img17 from '../../assets/Synergia25/SRI07230.JPG';
+import img18 from '../../assets/Synergia25/SRI07307.JPG';
+import img19 from '../../assets/Synergia25/SRI07321.JPG';
+import img20 from '../../assets/Synergia25/SRI07337.JPG';
+import img21 from '../../assets/Synergia25/SRI07431.JPG';
+import img22 from '../../assets/Synergia25/SRI07437.JPG';
+import img23 from '../../assets/Synergia25/SRI07502.JPG';
+import img24 from '../../assets/Synergia25/SRI07566.JPG';
+import img25 from '../../assets/Synergia25/SRI07577.JPG';
+import img26 from '../../assets/Synergia25/SRI07845.JPG';
+import img27 from '../../assets/Synergia25/SRI07883.JPG';
+import img28 from '../../assets/Synergia25/SRI08030.JPG';
+import img29 from '../../assets/Synergia25/SRI08346.JPG';
+import img30 from '../../assets/Synergia25/SRI08491.JPG';
+import img31 from '../../assets/Synergia25/SRI08501.JPG';
+import img32 from '../../assets/Synergia25/SRI08507.JPG';
+
+const SYNERGIA_PHOTOS = [
+  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
+  img31, img32
+];
+
 const HeroMosaic: React.FC = () => {
   const [phase, setPhase] = useState<'dump' | 'collecting' | 'formed'>('dump');
   const [isMobile, setIsMobile] = useState(false);
@@ -72,6 +113,7 @@ const HeroMosaic: React.FC = () => {
 
   const renderedTiles = tiles.map(({ cell, index, scatterX, scatterY, vibrantColors }) => {
     const colorScheme = vibrantColors[cell.colorIndex];
+    const imageSource = SYNERGIA_PHOTOS[index % SYNERGIA_PHOTOS.length];
 
     return (
       <motion.div
@@ -91,12 +133,12 @@ const HeroMosaic: React.FC = () => {
             : { scale: 1, opacity: 1, x: 0, y: 0, rotate: 0 }
         }
         whileHover={phase === 'formed' ? { 
-          scale: isMobile ? 1.2 : 1.5, 
+          scale: isMobile ? 1.5 : 2.5, 
           zIndex: 100,
           transition: { type: 'spring', stiffness: 300, damping: 20 }
         } : {}}
         whileTap={phase === 'formed' ? {
-          scale: 1.3,
+          scale: 2,
           zIndex: 100,
           transition: { type: 'spring', stiffness: 300, damping: 20 }
         } : {}}
@@ -116,45 +158,29 @@ const HeroMosaic: React.FC = () => {
         <div 
           className="w-full h-full overflow-hidden relative transition-all duration-300"
           style={{
-            backgroundColor: 'transparent',
             border: `2px solid ${colorScheme.border}`,
             boxShadow: `
               0 0 8px ${colorScheme.glow},
               inset 0 0 8px ${colorScheme.glow}
             `,
             imageRendering: 'pixelated',
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
           }}
         >
-          {/* Pixelated corner accents */}
-          <div className="absolute top-0 left-0 w-2 h-2" style={{ backgroundColor: colorScheme.border, imageRendering: 'pixelated' }} />
-          <div className="absolute top-0 right-0 w-2 h-2" style={{ backgroundColor: colorScheme.border, imageRendering: 'pixelated' }} />
-          <div className="absolute bottom-0 left-0 w-2 h-2" style={{ backgroundColor: colorScheme.border, imageRendering: 'pixelated' }} />
-          <div className="absolute bottom-0 right-0 w-2 h-2" style={{ backgroundColor: colorScheme.border, imageRendering: 'pixelated' }} />
-          
-          {/* Holographic scanline effect */}
-          <div 
-            className="absolute inset-0 opacity-20 pointer-events-none"
-            style={{
-              background: 'repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(255, 255, 255, 0.1) 4px, rgba(255, 255, 255, 0.1) 8px)',
-              imageRendering: 'pixelated',
-            }}
+          {/* Photo */}
+          <img 
+            src={imageSource} 
+            alt={`Synergia 2025 highlight ${index + 1}`}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
-
-          {/* Animated holographic shimmer */}
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, transparent 0%, ${colorScheme.glow} 50%, transparent 100%)`,
-              opacity: 0.1,
-            }}
-            animate={{
-              x: ['-100%', '100%'],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              ease: 'linear',
+          
+          {/* Color overlay */}
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-30 group-hover/tile:opacity-0 transition-opacity duration-300" 
+            style={{ 
+              backgroundColor: colorScheme.bg, 
+              mixBlendMode: 'overlay' 
             }}
           />
 
@@ -172,7 +198,7 @@ const HeroMosaic: React.FC = () => {
   });
 
   return (
-    <section className="relative min-h-screen w-full bg-gradient-to-b from-[#0a0015] via-[#1a0033] to-[#0a0015]">
+    <section className="relative w-full bg-gradient-to-b from-[#0a0015] via-[#1a0033] to-[#0a0015] py-20">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="arcade-grid absolute inset-0 opacity-30"></div>
@@ -203,16 +229,13 @@ const HeroMosaic: React.FC = () => {
       </div>
 
       {/* Grid Section */}
-      <div className="relative h-[100vh] w-full">
-        <div className="sticky top-0 h-screen w-full flex flex-col items-start justify-start pt-[200px] overflow-hidden">
+      <div className="relative w-full flex items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
           {/* The Grid Title Container */}
           <motion.div 
-            style={{ 
-              scale: gridScale, 
-              opacity: gridOpacity, 
-              rotateX: gridRotateX,
-              perspective: "1200px"
-            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
             className="relative z-10 w-full px-4 md:px-20 max-w-full"
           >
             <div className="relative">
@@ -224,97 +247,6 @@ const HeroMosaic: React.FC = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Content Section Below Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
-        {/* Professional Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-['Inter'] text-base sm:text-lg md:text-xl text-white/80 mb-6 px-4"
-          style={{
-            letterSpacing: '0.02em',
-          }}
-        >
-          Binary beats and cultural feats
-        </motion.p>
-
-        {/* Event Title */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="mb-8 sm:mb-12"
-        >
-          <div className="space-y-2">
-            <h1
-              className="font-['Press_Start_2P'] text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-2"
-              style={{
-                color: '#ff00ff',
-                textShadow: `
-                  0 0 10px #ff00ff,
-                  0 0 20px #ff00ff,
-                  0 0 40px #ff00ff,
-                  2px 0 #00ffff,
-                  -2px 0 #ff1493
-                `,
-              }}
-            >
-              SYNERGIA
-            </h1>
-            <p className="font-['Rajdhani'] text-base sm:text-lg md:text-xl text-gray-300">
-              Annual College Fest 2026
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="font-['Orbitron'] text-sm sm:text-base md:text-lg lg:text-xl text-[#00ffff] mb-6 sm:mb-8 px-4"
-        >
-          WHERE TECH MEETS CREATIVITY • LEVEL UP YOUR EXPERIENCE
-        </motion.p>
-
-        {/* Event Details */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 text-[#ff1493] font-['Rajdhani'] text-base sm:text-lg"
-        >
-          <div className="flex items-center gap-2">
-            <span>📅</span>
-            <span>MARCH 31 - APRIL 2, 2026</span>
-          </div>
-          <div className="hidden sm:block w-1 h-1 bg-[#ff1493] rounded-full"></div>
-          <div className="flex items-center gap-2">
-            <span>📍</span>
-            <span>BVRIT HYDERABAD</span>
-          </div>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
-        >
-          <button className="neon-button neon-border-purple bg-black/60 px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base md:text-lg text-[#ff00ff] hover:bg-[#ff00ff]/20 transition-all duration-300 pixel-corners w-full sm:w-auto">
-            REGISTER NOW
-          </button>
-          <button className="neon-button neon-border-blue bg-black/60 px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base md:text-lg text-[#00ffff] hover:bg-[#00ffff]/20 transition-all duration-300 pixel-corners w-full sm:w-auto">
-            EXPLORE EVENTS
-          </button>
-        </motion.div>
-      </div>
-
-      {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0015] to-transparent"></div>
     </section>
   );
 };
