@@ -1,7 +1,71 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react';
+import sac_logo from '../../assets/sac_logo.png';
 
 export function Contact() {
+
+  const sacMembers = [
+    {
+      name: 'Sarah',
+      role: 'President',
+      phone: '+91 9100785359',
+      color: '#ff00ff',
+    },
+    {
+      name: 'Shanmukhi',
+      role: 'Vice President',
+      phone: '+91 8555062174',
+      color: '#00ffff',
+    },
+    {
+      name: 'Sahithi',
+      role: 'Treasurer',
+      phone: '+91 9100180208',
+      color: '#ff1493',
+    },
+    {
+      name: 'Shresta',
+      role: 'Secretary',
+      phone: '+91 9908018018',
+      color: '#ff00ff',
+    },
+    {
+      name: 'Hansini',
+      role: 'Joint Secretary',
+      phone: '+91 9381866946',
+      color: '#00ffff',
+    },
+    {
+      name: 'Varsha',
+      role: 'Cultural Head',
+      phone: '+91 7995630929',
+      color: '#ff1493',
+    },
+    {
+      name: 'Sai Srinidhi',
+      role: 'Technical Head',
+      phone: '+91 8187818646',
+      color: '#ff00ff',
+    },
+    {
+      name: 'Nandini',
+      role: 'Social Media Head',
+      phone: '+91 7207397949',
+      color: '#00ffff',
+    },
+    {
+      name: 'Amitha',
+      role: 'Branding Head',
+      phone: '+91 7793944909',
+      color: '#ff1493',
+    },
+    {
+      name: 'Sharanya',
+      role: 'Creative Head',
+      phone: '+91 9955799668',
+      color: '#ff00ff',
+    },
+  ];
 
   const contactInfo = [
     {
@@ -11,16 +75,10 @@ export function Contact() {
       color: '#ff00ff',
     },
     {
-      icon: Phone,
-      label: 'Phone',
-      value: '+91 98765 43210',
-      color: '#00ffff',
-    },
-    {
       icon: MapPin,
       label: 'Location',
       value: 'BVRIT Hyderabad College of Engineering for Women, Hyderabad',
-      color: '#ff1493',
+      color: '#00ffff',
     },
   ];
 
@@ -64,6 +122,76 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             className="space-y-6 sm:space-y-8"
           >
+            {/* SAC Leadership */}
+            <div>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <img 
+                  src={sac_logo} 
+                  alt="SAC Logo" 
+                  className="h-20 w-auto object-contain"
+                />
+                <h3 className="font-['Press_Start_2P'] text-xl sm:text-2xl md:text-3xl text-[#ff00ff]">
+                  SAC Leadership Team
+                </h3>
+              </div>
+              
+              {/* President & Vice President Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 max-w-3xl mx-auto">
+                {sacMembers.slice(0, 2).map((member, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-black/60 backdrop-blur-sm p-6 pixel-corners border-2 hover:bg-black/80 transition-all duration-300"
+                    style={{ borderColor: member.color }}
+                  >
+                    <h4 className="font-['Orbitron'] text-lg sm:text-xl mb-2" style={{ color: member.color }}>
+                      {member.name}
+                    </h4>
+                    <p className="font-['Rajdhani'] text-sm text-gray-400 mb-3">
+                      {member.role}
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" style={{ color: member.color }} />
+                      <a href={`tel:${member.phone}`} className="font-['Rajdhani'] text-sm text-gray-300 hover:text-white transition-colors">
+                        {member.phone}
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Rest of the team - 4 per row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+                {sacMembers.slice(2).map((member, index) => (
+                  <motion.div
+                    key={index + 2}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-black/60 backdrop-blur-sm p-6 pixel-corners border-2 hover:bg-black/80 transition-all duration-300"
+                    style={{ borderColor: member.color }}
+                  >
+                    <h4 className="font-['Orbitron'] text-lg sm:text-xl mb-2" style={{ color: member.color }}>
+                      {member.name}
+                    </h4>
+                    <p className="font-['Rajdhani'] text-sm text-gray-400 mb-3">
+                      {member.role}
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" style={{ color: member.color }} />
+                      <a href={`tel:${member.phone}`} className="font-['Rajdhani'] text-sm text-gray-300 hover:text-white transition-colors">
+                        {member.phone}
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
             {/* Contact Details */}
             <div className="space-y-4 sm:space-y-6">
               {contactInfo.map((info, index) => (
