@@ -1,51 +1,42 @@
 import { useState } from "react";
 
 /**
- * This component is fully self-contained.
- * No imports from other project files.
- * Zero risk of path errors.
+ * Self-contained AI-like stall search
+ * No external imports
+ * Zero path errors
  */
 
 type Stall = {
   id: number;
   name: string;
+  location: string;
   keywords: string[];
 };
 
 const STALLS: Stall[] = [
-  { id: 1, name: "Biriyani", keywords: ["biriyani", "biryani", "rice", "indian"] },
-  { id: 2, name: "Chinese Food", keywords: ["chinese", "noodles", "momos", "fast food"] },
-  { id: 3, name: "Burgers & Sandwiches", keywords: ["burger", "sandwich", "fast food"] },
-  { id: 4, name: "Milkshakes", keywords: ["milkshake", "shake", "cold drink"] },
-  { id: 5, name: "Goli Soda", keywords: ["goli", "soda", "soft drink"] },
-  { id: 6, name: "Ice Gola", keywords: ["ice gola", "gola", "cold"] },
-  { id: 7, name: "Waffles & Desserts", keywords: ["sweet", "dessert", "waffle", "cake"] },
-  { id: 8, name: "Popcorn", keywords: ["popcorn", "snacks"] },
-  { id: 9, name: "BBQ", keywords: ["bbq", "grill", "non veg"] },
-  { id: 10, name: "Games / DIY / Art", keywords: ["games", "fun", "activities"] }
+  { id: 1, name: "Biriyani", location: "Food Court A", keywords: ["biriyani", "biryani", "rice", "indian"] },
+  { id: 2, name: "Chinese Food", location: "Food Court A", keywords: ["chinese", "noodles", "momos"] },
+  { id: 3, name: "Burgers & Sandwiches", location: "Food Court B", keywords: ["burger", "burgers", "sandwich", "fast food"] },
+  { id: 4, name: "Milkshakes", location: "Drinks Zone", keywords: ["milkshake", "shake", "cold"] },
+  { id: 5, name: "Goli Soda", location: "Drinks Zone", keywords: ["goli", "soda", "soft drink"] },
+  { id: 6, name: "Ice Gola", location: "Dessert Zone", keywords: ["ice", "gola"] },
+  { id: 7, name: "Waffles & Desserts", location: "Dessert Zone", keywords: ["waffle", "dessert", "sweet", "cake"] },
+  { id: 8, name: "Popcorn", location: "Snacks Zone", keywords: ["popcorn", "snacks"] },
+  { id: 9, name: "BBQ", location: "Food Court C", keywords: ["bbq", "grill", "non veg"] },
+  { id: 10, name: "Games / DIY / Art", location: "Activity Zone", keywords: ["games", "fun", "art", "diy"] }
 ];
 
 export default function AISearch() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Stall[]>([]);
   const [open, setOpen] = useState(false);
 
-  function handleSearch(value: string) {
-    setQuery(value);
-
-    if (!value.trim()) {
-      setResults([]);
-      return;
-    }
-
-    const q = value.toLowerCase();
-
-    const matches = STALLS.filter(stall =>
-      stall.keywords.some(k => k.includes(q))
-    );
-
-    setResults(matches);
-  }
+  const results = query.trim()
+    ? STALLS.filter(stall =>
+        stall.keywords.some(k =>
+          k.toLowerCase().includes(query.toLowerCase())
+        )
+      )
+    : [];
 
   return (
     <div style={{ position: "relative" }}>
@@ -54,14 +45,15 @@ export default function AISearch() {
         placeholder="Search stalls..."
         value={query}
         onFocus={() => setOpen(true)}
-        onChange={(e) => handleSearch(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
+        onBlur={() => setTimeout(() => setOpen(false), 150)}
         style={{
           padding: "6px 10px",
           borderRadius: "6px",
-          border: "1px solid #555",
+          border: "1px solid #00ffff",
           background: "#000",
           color: "#fff",
-          width: "180px"
+          width: "200px"
         }}
       />
 
@@ -70,27 +62,27 @@ export default function AISearch() {
           style={{
             position: "absolute",
             top: "110%",
-            left: 0,
-            background: "#111",
-            border: "1px solid #333",
+            right: 0,
+            background: "#0b0b0b",
+            border: "1px solid #00ffff",
             borderRadius: "6px",
-            width: "100%",
-            zIndex: 9999,
-            maxHeight: "300px",
-            overflowY: "auto"
+            width: "260px",
+            zIndex: 999
           }}
         >
-          {results.map(r => (
+          {results.map(stall => (
             <div
-              key={r.id}
+              key={stall.id}
               style={{
-                padding: "8px",
-                fontSize: "14px",
+                padding: "8px 10px",
                 borderBottom: "1px solid #222",
-                color: "#fff"
+                cursor: "default"
               }}
             >
-              {r.name} (Stall {r.id})
+              <div style={{ fontWeight: 600 }}>{stall.name}</div>
+              <div style={{ fontSize: "12px", color: "#00ffff" }}>
+                {stall.location}
+              </div>
             </div>
           ))}
         </div>
