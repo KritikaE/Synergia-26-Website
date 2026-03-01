@@ -41,7 +41,7 @@ export default function AISearch() {
     const q = value.toLowerCase();
 
     const matches = STALLS.filter(stall =>
-      stall.keywords.some(k => q.includes(k))
+      stall.keywords.some(k => k.includes(q))
     );
 
     setResults(matches);
@@ -75,7 +75,9 @@ export default function AISearch() {
             border: "1px solid #333",
             borderRadius: "6px",
             width: "100%",
-            zIndex: 999
+            zIndex: 9999,
+            maxHeight: "300px",
+            overflowY: "auto"
           }}
         >
           {results.map(r => (
@@ -84,7 +86,8 @@ export default function AISearch() {
               style={{
                 padding: "8px",
                 fontSize: "14px",
-                borderBottom: "1px solid #222"
+                borderBottom: "1px solid #222",
+                color: "#fff"
               }}
             >
               {r.name} (Stall {r.id})
