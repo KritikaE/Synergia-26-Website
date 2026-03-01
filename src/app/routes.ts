@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import { HomePage } from './pages/HomePage';
 import { EventsPage } from './pages/EventsPage';
+import { StallsPage } from './pages/StallsPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { StartupHubPage } from './pages/StartupHubPage';
 import { SponsorsPage } from './pages/SponsorsPage';
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
   {
     path: '/events',
     Component: EventsPage,
+  },
+  {
+    path: '/stalls',
+    Component: StallsPage,
   },
   {
     path: '/schedule',
