@@ -1,3 +1,4 @@
+import AISearch from "./AISearch";
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
@@ -161,6 +162,9 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+
+          {/* AI Search (Smart Stall Search) */}
+          <AISearch />
 
           {/* Right Logo - SAC */}
           <motion.div
