@@ -3,7 +3,7 @@ import { HomePage } from './pages/HomePage';
 import { EventsPage } from './pages/EventsPage';
 import { StallsPage } from './pages/StallsPage';
 import { SchedulePage } from './pages/SchedulePage';
-import { StartupHubPage } from './pages/StartupHubPage';
+import { HandbookPage } from './pages/HandbookPage';
 import { SponsorsPage } from './pages/SponsorsPage';
 import { ContactPage } from './pages/ContactPage';
 
@@ -25,8 +25,8 @@ export const router = createBrowserRouter([
     Component: SchedulePage,
   },
   {
-    path: '/startup-hub',
-    Component: StartupHubPage,
+    path: '/handbook',
+    Component: HandbookPage,
   },
   {
     path: '/sponsors',

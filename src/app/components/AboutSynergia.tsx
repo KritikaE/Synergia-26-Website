@@ -202,7 +202,7 @@ export function AboutSynergia() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 sm:mt-12"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 sm:mt-12"
           >
             {[
               { icon: Zap, label: 'Thrilling Competitions', color: '#ff00ff' },

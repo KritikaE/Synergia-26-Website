@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, MapPin, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react';
 import sac_logo from '../../assets/sac_logo.png';
 
 export function Contact() {
@@ -8,61 +8,51 @@ export function Contact() {
     {
       name: 'Sarah',
       role: 'President',
-      phone: '+91 9100785359',
       color: '#ff00ff',
     },
     {
       name: 'Shanmukhi',
       role: 'Vice President',
-      phone: '+91 8555062174',
       color: '#00ffff',
     },
     {
       name: 'Sahithi',
       role: 'Treasurer',
-      phone: '+91 9100180208',
       color: '#ff1493',
     },
     {
       name: 'Shresta',
       role: 'Secretary',
-      phone: '+91 9908018018',
       color: '#ff00ff',
     },
     {
       name: 'Hansini',
       role: 'Joint Secretary',
-      phone: '+91 9381866946',
       color: '#00ffff',
     },
     {
       name: 'Varsha',
       role: 'Cultural Head',
-      phone: '+91 7995630929',
       color: '#ff1493',
     },
     {
       name: 'Sai Srinidhi',
       role: 'Technical Head',
-      phone: '+91 8187818646',
       color: '#ff00ff',
     },
     {
       name: 'Nandini',
       role: 'Social Media Head',
-      phone: '+91 7207397949',
       color: '#00ffff',
     },
     {
       name: 'Amitha',
       role: 'Branding Head',
-      phone: '+91 7793944909',
       color: '#ff1493',
     },
     {
       name: 'Sharanya',
       role: 'Creative Head',
-      phone: '+91 9955799668',
       color: '#ff00ff',
     },
   ];
@@ -136,7 +126,7 @@ export function Contact() {
               </div>
               
               {/* President & Vice President Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 mb-6 max-w-3xl mx-auto">
                 {sacMembers.slice(0, 2).map((member, index) => (
                   <motion.div
                     key={index}
@@ -150,21 +140,15 @@ export function Contact() {
                     <h4 className="font-['Orbitron'] text-lg sm:text-xl mb-2" style={{ color: member.color }}>
                       {member.name}
                     </h4>
-                    <p className="font-['Rajdhani'] text-sm text-gray-400 mb-3">
+                    <p className="font-['Rajdhani'] text-sm text-gray-400">
                       {member.role}
                     </p>
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-4 h-4" style={{ color: member.color }} />
-                      <a href={`tel:${member.phone}`} className="font-['Rajdhani'] text-sm text-gray-300 hover:text-white transition-colors">
-                        {member.phone}
-                      </a>
-                    </div>
                   </motion.div>
                 ))}
               </div>
 
               {/* Rest of the team - 4 per row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
                 {sacMembers.slice(2).map((member, index) => (
                   <motion.div
                     key={index + 2}
@@ -178,15 +162,9 @@ export function Contact() {
                     <h4 className="font-['Orbitron'] text-lg sm:text-xl mb-2" style={{ color: member.color }}>
                       {member.name}
                     </h4>
-                    <p className="font-['Rajdhani'] text-sm text-gray-400 mb-3">
+                    <p className="font-['Rajdhani'] text-sm text-gray-400">
                       {member.role}
                     </p>
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-4 h-4" style={{ color: member.color }} />
-                      <a href={`tel:${member.phone}`} className="font-['Rajdhani'] text-sm text-gray-300 hover:text-white transition-colors">
-                        {member.phone}
-                      </a>
-                    </div>
                   </motion.div>
                 ))}
               </div>

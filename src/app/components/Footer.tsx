@@ -7,10 +7,9 @@ export function Footer() {
     { label: 'Home', href: '/' },
     { label: 'Events', href: '/events' },
     { label: 'Schedule', href: '/schedule' },
-    { label: 'Startup Hub', href: '/startup-hub' },
+    { label: 'Handbook', href: '/handbook' },
     { label: 'Sponsors', href: '/sponsors' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Profile', href: '/profile' },
   ];
 
   const scrollToSection = (href: string) => {

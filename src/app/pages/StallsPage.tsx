@@ -3,6 +3,7 @@ import { Navbar } from '../components/Navbar';
 import { Stalls, StallData } from '../components/Stalls';
 import { StallDetailsModal } from '../components/StallDetailsModal';
 import { Footer } from '../components/Footer';
+import { ScrollToTop } from '../components/ScrollToTop';
 
 export function StallsPage() {
   const [selectedStall, setSelectedStall] = useState<StallData | null>(null);
@@ -20,6 +21,7 @@ export function StallsPage() {
 
   return (
     <div className="size-full min-h-screen bg-[#0a0015] overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <Stalls onStallClick={handleStallClick} />
       <Footer />

@@ -3,6 +3,7 @@ import { Navbar } from '../components/Navbar';
 import { Events, EventData } from '../components/Events';
 import { EventDetailsModal } from '../components/EventDetailsModal';
 import { Footer } from '../components/Footer';
+import { ScrollToTop } from '../components/ScrollToTop';
 
 export function EventsPage() {
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
@@ -24,6 +25,7 @@ export function EventsPage() {
 
   return (
     <div className="size-full min-h-screen bg-[#0a0015] overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <Events onEventClick={handleEventClick} />
       <Footer />

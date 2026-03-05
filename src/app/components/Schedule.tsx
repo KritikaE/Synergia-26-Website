@@ -35,14 +35,14 @@ export const Schedule = () => {
   };
 
   return (
-    <section className="pt-24 pb-8 bg-[#0a0015] text-white px-6 min-h-screen">
+    <section className="pt-32 pb-8 bg-[#0a0015] text-white px-6 min-h-screen">
       
-      {/* HEADING - Glow intensity reduced here */}
+      {/* HEADING */}
       <h2
-        className="text-center text-4xl md:text-5xl font-bold text-pink-500 mb-12 tracking-[0.2em] relative z-50"
+        className="text-center font-['Press_Start_2P'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-12 sm:mb-16"
         style={{ 
-          textShadow: "0 0 10px #ec4899, 0 0 20px #ec4899",
-          fontFamily: "'Press Start 2P', cursive" 
+          color: '#ff1493',
+          textShadow: '0 0 8px rgba(255, 20, 147, 0.6), 0 0 16px rgba(255, 20, 147, 0.3)'
         }}
       >
         SCHEDULE

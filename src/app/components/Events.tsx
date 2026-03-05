@@ -377,7 +377,7 @@ export function Events({ onEventClick }: EventsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16 justify-center"
+          className="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16 justify-center items-center"
         >
           {eventsByCategory.map((cat, index) => {
             const colors = getCategoryColor(index);
@@ -385,7 +385,7 @@ export function Events({ onEventClick }: EventsProps) {
               <button
                 key={index}
                 onClick={() => setActiveCategory(index)}
-                className={`flex-1 max-w-xs ${
+                className={`w-full sm:flex-1 max-w-xs ${
                   activeCategory === index ? 'bg-black/80' : 'bg-black/40'
                 } py-8 sm:py-10 px-6 pixel-corners transition-all duration-300 hover:bg-black/60 group border-2 flex items-center justify-center relative`}
                 style={{ borderColor: colors.bg }}
@@ -419,7 +419,7 @@ export function Events({ onEventClick }: EventsProps) {
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {eventsByCategory[activeCategory].events.map((event, index) => (
               <motion.div
                 key={event.id}

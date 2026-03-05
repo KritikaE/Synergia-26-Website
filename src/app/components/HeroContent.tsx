@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export function HeroContent() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0a0015] via-[#1a0033] to-[#0a0015]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0a0015] via-[#1a0033] to-[#0a0015] pt-20">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="arcade-grid absolute inset-0 opacity-30"></div>
