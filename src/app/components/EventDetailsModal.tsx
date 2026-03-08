@@ -96,6 +96,17 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
                   </div>
                 </div>
 
+                {/* Poster */}
+                {event.poster && (
+                <div className="mb-6 flex justify-center">
+                    <img
+                      src={event.poster}
+                      alt={event.title}
+                      className="w-full max-h-[400px] object-contain rounded-lg border border-gray-700"
+                    />
+              </div>
+              )}
+
                 {/* Event Info Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 sm:mb-8">
                   {event.dateTime && (

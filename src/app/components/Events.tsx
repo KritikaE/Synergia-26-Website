@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Code, Music, Lightbulb, Palette, Mic, Brush } from 'lucide-react';
+import buildspherePoster from "../../assets/events/buildsphere.jpeg";
+import chipeainewgenPoster from "../../assets/events/chipeainewgen.jpeg";
+import hardwarehustlePoster from "../../assets/events/hardwarehustle.jpeg";
+import raconteurPoster from "../../assets/events/raconteur.jpeg";
+import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
+import innoventurePoster from "../../assets/events/innoventure.jpeg";
+import algohack10Poster from "../../assets/events/algohack10.jpeg";
+import embedxPoster from "../../assets/events/embedx.jpeg";
 
 import SvarautsavPoster from "../../assets/CulturalEventsPosters/SvarautsavPoster.jpeg";
 import PicitPoster from "../../assets/CulturalEventsPosters/PicitPoster.jpeg";
@@ -12,6 +20,7 @@ export interface EventData {
   title: string;
   category: 'Technical' | 'Cultural' | 'Workshop';
   description: string;
+  poster: string;
   icon: any;
   color: string;
   borderColor: string;
@@ -36,6 +45,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Hardware Hustle',
       category: 'Technical',
       description: 'Hardware design and innovation challenge.',
+      poster: hardwarehustlePoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
@@ -56,6 +66,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Trash2Tech',
       category: 'Technical',
       description: 'Upcycling and sustainable technology innovation.',
+      poster: trashtotechPoster,
       icon: Lightbulb,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
@@ -66,6 +77,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'EmbedX',
       category: 'Technical',
       description: 'Embedded systems and IoT challenge.',
+      poster: embedxPoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
@@ -76,6 +88,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Raconteur',
       category: 'Technical',
       description: 'Technical storytelling and presentation competition.',
+      poster: raconteurPoster,
       icon: Mic,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
@@ -86,6 +99,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'ChipAI_NewGen',
       category: 'Technical',
       description: 'AI and chip design innovation challenge.',
+      poster: chipeainewgenPoster,
       icon: Code,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
@@ -96,6 +110,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Innoventure',
       category: 'Technical',
       description: 'Startup pitch and innovation showcase.',
+      poster: innoventurePoster,
       icon: Lightbulb,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
@@ -116,6 +131,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'AlgoHack 1.O',
       category: 'Technical',
       description: 'Algorithm design and competitive programming.',
+      poster: algohack10Poster,
       icon: Code,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
@@ -126,6 +142,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'BuildSphere',
       category: 'Technical',
       description: 'Full-stack development and project building competition.',
+      poster: buildspherePoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
