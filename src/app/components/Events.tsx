@@ -359,22 +359,12 @@ export function Events({ onEventClick }: EventsProps) {
                 onClick={() => onEventClick?.(event)}
               >
                 <div className="mb-4 sm:mb-6 w-full h-64 overflow-hidden pixel-corners bg-black">
-                      <img
-                        src={
-                          event.id === "battleofbands"
-                            ? BattleOfBandsPoster
-                            : event.id === "svarautsav"
-                            ? SvarautsavPoster
-                            : event.id === "chitraang"
-                            ? ChitraangPoster
-                            : event.id === "picit"
-                            ? PicitPoster
-                            : ""
-                        }
+                    <img
+                        src={event.poster}
                         alt={event.title}
                         className="w-full h-full object-contain transition-transform duration-300"
-                      />
-                  </div>
+                    />
+                </div>
 
                 <h3
                   className="font-['Orbitron'] text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4"
