@@ -8,6 +8,7 @@ import raconteurPoster from "../../assets/events/raconteur.jpeg";
 import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
 import innoventurePoster from "../../assets/events/innoventure.jpeg";
 import algohack10Poster from "../../assets/events/algohack10.jpeg";
+import embedxPoster from "../../assets/events/embedx.jpeg";
 
 export interface EventData {
   id: string;
@@ -70,6 +71,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'EmbedX',
       category: 'Technical',
       description: 'Embedded systems and IoT challenge.',
+      poster: embedxPoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
