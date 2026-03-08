@@ -6,6 +6,8 @@ import chipeainewgenPoster from "../../assets/events/chipeainewgen.jpeg";
 import hardwarehustlePoster from "../../assets/events/hardwarehustle.jpeg";
 import raconteurPoster from "../../assets/events/raconteur.jpeg";
 import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
+import innoventurePoster from "../../assets/events/innoventure.jpeg";
+import algohack10Poster from "../../assets/events/algohack10.jpeg";
 
 export interface EventData {
   id: string;
@@ -100,6 +102,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Innoventure',
       category: 'Technical',
       description: 'Startup pitch and innovation showcase.',
+      poster: innoventurePoster,
       icon: Lightbulb,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
@@ -120,6 +123,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'AlgoHack 1.O',
       category: 'Technical',
       description: 'Algorithm design and competitive programming.',
+      poster: algohack10Poster,
       icon: Code,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
