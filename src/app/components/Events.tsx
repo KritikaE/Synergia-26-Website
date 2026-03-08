@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Code, Music, Lightbulb, Palette, Mic, Brush } from 'lucide-react';
+import buildspherePoster from "../../assets/events/buildsphere.jpeg";
+import chipeainewgenPoster from "../../assets/events/chipeainewgen.jpeg";
+import hardwarehustlePoster from "../../assets/events/hardwarehustle.jpeg";
+import raconteurPoster from "../../assets/events/raconteur.jpeg";
+import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
 
 export interface EventData {
   id: string;
@@ -31,6 +36,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Hardware Hustle',
       category: 'Technical',
       description: 'Hardware design and innovation challenge.',
+      poster: hardwarehustlePoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
@@ -51,6 +57,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Trash2Tech',
       category: 'Technical',
       description: 'Upcycling and sustainable technology innovation.',
+      poster: trashtotechPoster,
       icon: Lightbulb,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
@@ -71,6 +78,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'Raconteur',
       category: 'Technical',
       description: 'Technical storytelling and presentation competition.',
+      poster: raconteurPoster,
       icon: Mic,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
@@ -81,6 +89,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'ChipAI_NewGen',
       category: 'Technical',
       description: 'AI and chip design innovation challenge.',
+      poster: chipeainewgenPoster,
       icon: Code,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
@@ -121,6 +130,7 @@ export function Events({ onEventClick }: EventsProps) {
       title: 'BuildSphere',
       category: 'Technical',
       description: 'Full-stack development and project building competition.',
+      poster: buildspherePoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
