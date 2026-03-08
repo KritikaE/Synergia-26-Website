@@ -74,11 +74,10 @@ export const Schedule = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-5xl md:text-6xl font-bold mb-16 tracking-[0.2em]"
+        className="text-center font-['Press_Start_2P'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-16"
         style={{
-          fontFamily: "'Press Start 2P', cursive",
-          color: "#a855f7",
-          textShadow: "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #7e22ce"
+          color: '#ff1493',
+          textShadow: '0 0 15px rgba(255, 20, 147, 0.5)',
         }}
       >
         SCHEDULE
