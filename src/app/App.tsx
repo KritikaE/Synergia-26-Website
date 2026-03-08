@@ -7,6 +7,7 @@ import butterflyVideo from '../assets/butterfly.mp4';
 
 export default function App() {
   const [startupPhase, setStartupPhase] = useState<'loader' | 'video' | 'content'>('loader');
+  const [fadeVideo, setFadeVideo] = useState(false);
 
   const handleLoaderComplete = () => {
     setStartupPhase('video');
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <>
       {startupPhase === 'loader' && <InsertCoinLoader onComplete={handleLoaderComplete} />}
-      const [fadeVideo, setFadeVideo] = useState(false);
+      
 
       {startupPhase === 'video' && (
         <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
