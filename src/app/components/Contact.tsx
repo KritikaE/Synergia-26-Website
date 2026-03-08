@@ -39,9 +39,9 @@ export function Contact() {
       color: '#ff00ff',
       url: 'https://www.instagram.com/sac_bvrith?igsh=MmZtc3FtMHJrMDV0',
     },
-    { icon: Facebook, label: 'Facebook', color: '#00ffff', url: '#' },
-    { icon: Twitter, label: 'Twitter', color: '#ff1493', url: '#' },
-    { icon: Linkedin, label: 'LinkedIn', color: '#ff00ff', url: '#' },
+    { icon: Facebook, label: 'Facebook', color: '#00ffff', url: 'https://www.facebook.com/share/1B1mxagjgk/' },
+    { icon: Twitter, label: 'Twitter', color: '#ff1493', url: 'https://x.com/BVRITHYDERABAD' },
+    { icon: Linkedin, label: 'LinkedIn', color: '#ff00ff', url: 'https://www.linkedin.com/in/bvrit-hyderabad-college-of-engineering-for-women-115179230?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
   ];
 
   return (
