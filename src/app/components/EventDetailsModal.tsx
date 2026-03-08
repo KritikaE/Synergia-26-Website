@@ -54,6 +54,17 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
 
               {/* Content */}
               <div className="p-6 sm:p-8 md:p-10 lg:p-12">
+                {/* Event Poster */}
+                  {event.poster && (
+                    <div className="w-full mb-8 flex justify-center">
+                      <img
+                        src={event.poster}
+                        alt={event.title}
+                        className="max-h-[500px] w-full object-contain pixel-corners cursor-zoom-in transition-transform duration-300 hover:scale-105"
+                        onClick={() => window.open(event.poster, "_blank")}
+                      />
+                    </div>
+                  )}
                 {/* Header */}
                 <div className="mb-6 sm:mb-8">
                   <div className="flex items-start gap-4 mb-4">

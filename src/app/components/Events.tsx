@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Code, Music, Lightbulb, Palette, Mic, Brush } from 'lucide-react';
 
+import SvarautsavPoster from "../../assets/CulturalEventsPosters/SvarautsavPoster.jpeg";
+import PicitPoster from "../../assets/CulturalEventsPosters/PicitPoster.jpeg";
+import ChitraangPoster from "../../assets/CulturalEventsPosters/ChitraangPoster.jpeg";
+import BattleOfBandsPoster from "../../assets/CulturalEventsPosters/BattleOfBandsPoster.jpeg";
+
 export interface EventData {
   id: string;
   title: string;
@@ -10,6 +15,7 @@ export interface EventData {
   icon: any;
   color: string;
   borderColor: string;
+  poster?: string;
   fullDescription?: string;
   rules?: string[];
   eligibility?: string;
@@ -133,6 +139,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Rock the stage with your band!',
       icon: Music,
+      poster: BattleOfBandsPoster, 
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
       registrationLink: 'https://forms.gle/hpuRoCpeKiTjQPZJ7',
@@ -143,6 +150,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Classical and contemporary music competition.',
       icon: Music,
+      poster: SvarautsavPoster,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       registrationLink: 'https://forms.gle/dtoQCPyMAsHo9cL87',
@@ -163,6 +171,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Live painting and art competition.',
       icon: Palette,
+      poster: ChitraangPoster,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
       registrationLink: 'https://forms.gle/V9PfEQoUAFTjdQZD9',
@@ -173,6 +182,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Photography and visual storytelling competition.',
       icon: Palette,
+      poster: PicitPoster,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       registrationLink: 'https://forms.gle/v4hRLXELzDvEKKBJ9',
@@ -322,9 +332,23 @@ export function Events({ onEventClick }: EventsProps) {
                 style={{ borderColor: event.color + '60' }}
                 onClick={() => onEventClick?.(event)}
               >
-                <div className="mb-4 sm:mb-6" style={{ color: event.color }}>
-                  <event.icon className="w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300" />
-                </div>
+                <div className="mb-4 sm:mb-6 w-full h-64 overflow-hidden pixel-corners bg-black">
+                      <img
+                        src={
+                          event.id === "battleofbands"
+                            ? BattleOfBandsPoster
+                            : event.id === "svarautsav"
+                            ? SvarautsavPoster
+                            : event.id === "chitraang"
+                            ? ChitraangPoster
+                            : event.id === "picit"
+                            ? PicitPoster
+                            : ""
+                        }
+                        alt={event.title}
+                        className="w-full h-full object-contain transition-transform duration-300"
+                      />
+                  </div>
 
                 <h3
                   className="font-['Orbitron'] text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4"
