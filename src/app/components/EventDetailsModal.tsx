@@ -13,8 +13,12 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
   if (!event) return null;
 
   const handleRegister = () => {
-    onRegister?.(event.id);
-    alert(`Successfully registered for ${event.title}!`);
+    if (event.registrationLink) {
+      window.open(event.registrationLink, '_blank', 'noopener,noreferrer');
+    } else {
+      onRegister?.(event.id);
+      alert(`Registration for ${event.title} will open soon!`);
+    }
   };
 
   return (
