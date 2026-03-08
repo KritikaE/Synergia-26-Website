@@ -20,7 +20,6 @@ export interface EventData {
   title: string;
   category: 'Technical' | 'Cultural' | 'Workshop';
   description: string;
-  poster: string;
   icon: any;
   color: string;
   borderColor: string;
