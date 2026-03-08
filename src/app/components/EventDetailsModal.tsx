@@ -60,8 +60,7 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
                       <img
                         src={event.poster}
                         alt={event.title}
-                        className="max-h-[500px] w-full object-contain pixel-corners cursor-zoom-in transition-transform duration-300 hover:scale-105"
-                        onClick={() => window.open(event.poster, "_blank")}
+                        className="max-h-[500px] w-full object-contain pixel-corners"
                       />
                     </div>
                   )}
