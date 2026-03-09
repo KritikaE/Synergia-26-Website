@@ -1,30 +1,48 @@
 import { motion } from 'motion/react';
 
+// Import sponsor logos
+import beingZeroLogo from '../../assets/Sponsors/Being_Zero.jfif';
+import smartInterviewsLogo from '../../assets/Sponsors/Smart_Interviews.png';
+import studentTribeLogo from '../../assets/Sponsors/Student_Tribe.png';
+import varmaFoundationLogo from '../../assets/Sponsors/Varma_Foundation.jpeg';
+
 export function Sponsors() {
-  // Updated sponsor list with specified companies
+  // Updated sponsor list with images
   const sponsors = [
-    { name: 'BeingZero', color: '#ff00ff' },
-    { name: 'SmartInterviews', color: '#00ffff' },
-    { name: 'Student Tribe', color: '#ff1493' },
-    { name: 'Dominos', color: '#ff00ff' },
-    { name: 'Prodigy', color: '#00ffff' },
+    { name: 'BeingZero', logo: beingZeroLogo, color: '#ff00ff' },
+    { name: 'SmartInterviews', logo: smartInterviewsLogo, color: '#00ffff' },
+    { name: 'Student Tribe', logo: studentTribeLogo, color: '#ff1493' },
+    { name: 'Varma Foundation', logo: varmaFoundationLogo, color: '#ff00ff' },
+    { name: 'Prodigy', logo: null, color: '#00ffff' }, // No image yet
   ];
 
-  const SponsorCard = ({ name, color }: { name: string; color: string }) => (
+  const SponsorCard = ({ name, logo, color }: { name: string; logo: string | null; color: string }) => (
     <motion.div
       whileHover={{ scale: 1.05, y: -5 }}
-      className="neon-border-blue bg-black/60 backdrop-blur-sm p-8 sm:p-10 md:p-12 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80 flex items-center justify-center min-h-[180px]"
+      className="bg-black/60 backdrop-blur-sm p-8 sm:p-10 md:p-12 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80 flex items-center justify-center min-h-[180px] border-2"
+      style={{ borderColor: color }}
     >
-      <div className="text-center">
-        <div
-          className="font-['Orbitron'] text-xl sm:text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300"
-          style={{
-            color: color,
-            textShadow: `0 0 15px ${color}, 0 0 30px ${color}`,
-          }}
-        >
-          {name}
-        </div>
+      <div className="text-center w-full">
+        {logo ? (
+          <img 
+            src={logo} 
+            alt={name}
+            className="w-full h-auto max-h-32 object-contain group-hover:scale-110 transition-transform duration-300"
+            style={{
+              filter: 'brightness(1.1) contrast(1.1)',
+            }}
+          />
+        ) : (
+          <div
+            className="font-['Orbitron'] text-xl sm:text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300"
+            style={{
+              color: color,
+              textShadow: `0 0 15px ${color}, 0 0 30px ${color}`,
+            }}
+          >
+            {name}
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -63,7 +81,7 @@ export function Sponsors() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <SponsorCard name={sponsor.name} color={sponsor.color} />
+              <SponsorCard name={sponsor.name} logo={sponsor.logo} color={sponsor.color} />
             </motion.div>
           ))}
         </div>
