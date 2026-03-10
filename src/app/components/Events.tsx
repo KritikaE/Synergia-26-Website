@@ -24,6 +24,7 @@ import Pottery from "/src/assets/Event_posters.png/Pottery Workshop.png";
 import Painting from "/src/assets/Event_posters.png/Painting.png";
 import CandleMaking from "/src/assets/Event_posters.png/Candle Making Workshop.png";
 import CandleHolder from "/src/assets/Event_posters.png/CandleHolderDecorationWorkshop.png";
+import photoboothPoster from "/src/assets/Event_posters.png/photobooth.jpeg";
 
 export interface EventData {
   id: string;
@@ -279,7 +280,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Workshop',
       description: 'Capture moments!',
       icon: Brush,
-      poster: CandleHolder,
+      poster: photoboothPoster,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       
