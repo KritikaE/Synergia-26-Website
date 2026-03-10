@@ -345,7 +345,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       fullDescription: 'More gaming fun and entertainment.',
-      highlights: ['Buzz Wire', 'Hand Hop Scotch', 'Balloon Dart', 'Word Guessing', 'Guess the Character', 'Guess the Number', 'Die Art Coin'],
+      highlights: ['Buzz Wire', 'Hand Hop Scotch', 'Balloon Dart', 'Word Guessing', 'Guess the Character', 'Guess the Number', 'Die Art Coin', 'Roll the Ball', 'Spin the Wheel', 'String Game', 'Ring Game', 'Blowing the Cup', 'Blindfold Drawing', 'Luck Game'],
       location: 'Sports Ground',
     },
     {
@@ -357,7 +357,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
       fullDescription: 'Even more games to enjoy.',
-      highlights: ['Roll the Ball', 'Spin the Wheel', 'String Game', 'Ring Game', 'Blowing the Cup', 'Blindfold Drawing', 'Luck Game'],
+      highlights: ['Foosball Game', 'String Hockey', 'Cups Stacking', 'Marbles', 'Find the Hidden Object in Sand'],
       location: 'Sports Ground',
     },
   ];
