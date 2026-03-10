@@ -10,14 +10,13 @@ import { ScrollToTop } from '../components/ScrollToTop';
 export function HomePage() {
   return (
     <div className="size-full min-h-screen bg-[#0a0015] overflow-x-hidden">
-<<<<<<< Updated upstream
+Updated upstream
       <ScrollToTop />
       <Navbar />
       <HeroContent />
       <AboutSynergia />
       <VideoGrid />
       <HeroMosaic />
-=======
 
       <Navbar />
 
@@ -28,7 +27,7 @@ export function HomePage() {
       {/* ✅ NEW SCHEDULE SECTION */}
       <Schedule />
 
->>>>>>> Stashed changes
+Stashed changes
       <Footer />
 
     </div>
