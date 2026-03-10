@@ -4,7 +4,8 @@ import { motion } from 'motion/react';
 import beingZeroLogo from '../../assets/Sponsors/Being_Zero.jfif';
 import smartInterviewsLogo from '../../assets/Sponsors/Smart_Interviews.png';
 import studentTribeLogo from '../../assets/Sponsors/Student_Tribe.png';
-import varmaFoundationLogo from '../../assets/Sponsors/Varma_Foundation.jpeg';
+import varmaFoundationLogo from '../../assets/Sponsors/Varma_Foundation.jpeg'
+import ProdigyLogo from '/src/assets/Sponsors/Prodigy.jpeg';
 
 export function Sponsors() {
   // Updated sponsor list with images
@@ -13,7 +14,7 @@ export function Sponsors() {
     { name: 'SmartInterviews', logo: smartInterviewsLogo, color: '#00ffff' },
     { name: 'Student Tribe', logo: studentTribeLogo, color: '#ff1493' },
     { name: 'Varma Foundation', logo: varmaFoundationLogo, color: '#ff00ff' },
-    { name: 'Prodigy', logo: null, color: '#00ffff' }, // No image yet
+    { name: 'Prodigy', logo: ProdigyLogo, color: '#00ffff' }, 
   ];
 
   const SponsorCard = ({ name, logo, color }: { name: string; logo: string | null; color: string }) => (
@@ -94,9 +95,7 @@ export function Sponsors() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center mt-12 sm:mt-16 md:mt-20"
         >
-          <button className="neon-button neon-border-purple bg-black/60 px-8 sm:px-12 py-4 sm:py-5 font-['Orbitron'] text-base sm:text-lg md:text-xl text-[#ff00ff] hover:bg-[#ff00ff]/20 transition-all duration-300 pixel-corners">
-            BECOME A SPONSOR
-          </button>
+          
         </motion.div>
       </div>
     </section>
