@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router';
 
 export function HeroContent() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0a0015] via-[#1a0033] to-[#0a0015] pt-20">
       {/* Animated Background */}
@@ -108,10 +111,10 @@ export function HeroContent() {
           transition={{ duration: 1, delay: 1 }}
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
         >
-          <button className="neon-button neon-border-purple bg-black/60 px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base md:text-lg text-[#ff00ff] hover:bg-[#ff00ff]/20 transition-all duration-300 pixel-corners w-full sm:w-auto">
-            REGISTER NOW
-          </button>
-          <button className="neon-button neon-border-blue bg-black/60 px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base md:text-lg text-[#00ffff] hover:bg-[#00ffff]/20 transition-all duration-300 pixel-corners w-full sm:w-auto">
+          <button 
+            onClick={() => navigate('/events')}
+            className="neon-button neon-border-blue bg-black/60 px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-['Orbitron'] text-sm sm:text-base md:text-lg text-[#00ffff] hover:bg-[#00ffff]/20 transition-all duration-300 pixel-corners w-full sm:w-auto"
+          >
             EXPLORE EVENTS
           </button>
         </motion.div>
