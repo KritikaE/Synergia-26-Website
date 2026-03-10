@@ -189,7 +189,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       fullDescription: 'Freshly popped popcorn with exciting flavors.',
-      highlights: ['Butter', 'Caramel', 'Cheese'],
+      highlights: ['Sweet: Butter, Caramel, Chocolate', 'Savoury: Cheese, Masala, Peri-Peri, Salt'],
       location: 'Sports Ground',
     },
     {
