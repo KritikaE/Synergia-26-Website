@@ -9,11 +9,21 @@ import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
 import innoventurePoster from "../../assets/events/innoventure.jpeg";
 import algohack10Poster from "../../assets/events/algohack10.jpeg";
 import embedxPoster from "../../assets/events/embedx.jpeg";
+import codeescape from "/src/assets/Event_posters.png/Code&Escape.png";
+import Chaos2Clarity from "/src/assets/Event_posters.png/Chaos2Clarity.png";
+
 
 import SvarautsavPoster from "../../assets/CulturalEventsPosters/SvarautsavPoster.jpeg";
 import PicitPoster from "../../assets/CulturalEventsPosters/PicitPoster.jpeg";
 import ChitraangPoster from "../../assets/CulturalEventsPosters/ChitraangPoster.jpeg";
 import BattleOfBandsPoster from "../../assets/CulturalEventsPosters/BattleOfBandsPoster.jpeg";
+import ThandavClassical from "/src/assets/CulturalEventsPosters/Thandav (Classical).png";
+import ThandavWestern from "/src/assets/CulturalEventsPosters/Thandav (Western).png";
+
+import Pottery from "/src/assets/Event_posters.png/Pottery Workshop.png";
+import Painting from "/src/assets/Event_posters.png/Painting.png";
+import CandleMaking from "/src/assets/Event_posters.png/Candle Making Workshop.png";
+import CandleHolder from "/src/assets/Event_posters.png/CandleHolderDecorationWorkshop.png";
 
 export interface EventData {
   id: string;
@@ -56,6 +66,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Technical',
       description: 'Problem-solving and debugging competition.',
       icon: Code,
+      poster: Chaos2Clarity,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       registrationLink: 'https://forms.gle/LKyhVRJUQ9hbp6XU7',
@@ -121,6 +132,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Technical',
       description: 'Coding challenges in an escape room format.',
       icon: Code,
+      poster: codeescape,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       registrationLink: 'https://forms.gle/X8otii5Q55TiXbcH9',
@@ -177,6 +189,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Solo and group dance competition.',
       icon: Music,
+      poster: ThandavClassical,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       registrationLink: 'https://forms.gle/7PPe1gnC2L3ZQ7KN6',
@@ -187,6 +200,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Cultural',
       description: 'Solo and group dance competition.',
       icon: Music,
+      poster: ThandavWestern,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       registrationLink: 'https://forms.gle/QDdxfpqFEnLKA32Q9',
@@ -221,6 +235,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Workshop',
       description: 'Hands-on pottery making workshop.',
       icon: Brush,
+      poster: Pottery,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       registrationLink: 'https://forms.gle/dug58hULS7b2ewa69',
@@ -231,6 +246,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Workshop',
       description: 'Create beautiful handmade candles.',
       icon: Brush,
+      poster: CandleMaking,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
       registrationLink: 'https://forms.gle/woSomoBVPuMZHe6Z8',
@@ -241,6 +257,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Workshop',
       description: 'Learn fabric painting techniques.',
       icon: Palette,
+      poster: Painting,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       registrationLink: 'https://forms.gle/n4k1sCTFgzDGAKST7',
@@ -251,6 +268,7 @@ export function Events({ onEventClick }: EventsProps) {
       category: 'Workshop',
       description: 'Design and decorate custom candle holders.',
       icon: Brush,
+      poster: CandleHolder,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       registrationLink: 'https://forms.gle/tQyNz4jf4TthyUZcA',
