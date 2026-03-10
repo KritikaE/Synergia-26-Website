@@ -115,7 +115,7 @@ export function StallDetailsModal({ stall, isOpen, onClose }: StallDetailsModalP
                 <div className="flex items-center gap-2 text-gray-400 mb-6">
                   <MapPin className="w-5 h-5" />
                   <span className="font-['Rajdhani'] text-base">
-                    Location will be announced soon
+                    {stall.location || 'Sports Ground'}
                   </span>
                 </div>
 
