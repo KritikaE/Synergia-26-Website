@@ -14,7 +14,7 @@ export function Sponsors() {
     { name: 'SmartInterviews', logo: smartInterviewsLogo, color: '#00ffff' },
     { name: 'Student Tribe', logo: studentTribeLogo, color: '#ff1493' },
     { name: 'Varma Foundation', logo: varmaFoundationLogo, color: '#ff00ff' },
-    { name: 'Prodigy', logo: ProdigyLogo, color: '#00ffff' }, 
+    //{ name: 'Prodigy', logo: ProdigyLogo, color: '#00ffff' }, 
   ];
 
   const SponsorCard = ({ name, logo, color }: { name: string; logo: string | null; color: string }) => (
