@@ -18,7 +18,7 @@ export const Schedule = () => {
         { time: "10:00 AM – 1:00 PM", title: "Chaos2Clarity", category: "Technical", venue: "SMB-207" },
         { time: "10:00 AM – 4:00 PM", title: "Innoventure", category: "Technical", venue: "BFSI Hall" },
         { time: "10:00 AM onwards", title: "EmbedX", category: "Technical", venue: "SSH1" },
-        { time: "10:30 AM – 12:30 PM", title: "Raconteur", category: "Technical", venue: "JADE Block" },
+        { time: "10:30 AM – 12:30 PM", title: "Raconteur", category: "Technical", venue: "JADE BLOCK" },
         { time: "11:00 AM – 12:00 PM & 1:00 PM - 3:00 PM", title: "Hardware Hustle", category: "Technical", venue: "Emerald block, Simulation lab" },
         { time: "11:00 AM – 1:30 PM", title: "Trash2Tech", category: "Technical", venue: "BFSI hall 2" },
       ],

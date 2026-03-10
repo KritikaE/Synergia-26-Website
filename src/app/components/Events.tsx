@@ -1,6 +1,30 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Code, Music, Lightbulb, Palette, Mic, Brush } from 'lucide-react';
+import buildspherePoster from "../../assets/events/buildsphere.jpeg";
+import chipeainewgenPoster from "../../assets/events/chipeainewgen.jpeg";
+import hardwarehustlePoster from "../../assets/events/hardwarehustle.jpeg";
+import raconteurPoster from "../../assets/events/raconteur.jpeg";
+import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
+import innoventurePoster from "../../assets/events/innoventure.jpeg";
+import algohack10Poster from "../../assets/events/algohack10.jpeg";
+import embedxPoster from "../../assets/events/embedx.jpeg";
+import codeescape from "/src/assets/Event_posters.png/Code&Escape.png";
+import Chaos2Clarity from "/src/assets/Event_posters.png/Chaos2Clarity.png";
+
+
+import SvarautsavPoster from "../../assets/CulturalEventsPosters/SvarautsavPoster.jpeg";
+import PicitPoster from "../../assets/CulturalEventsPosters/PicitPoster.jpeg";
+import ChitraangPoster from "../../assets/CulturalEventsPosters/ChitraangPoster.jpeg";
+import BattleOfBandsPoster from "../../assets/CulturalEventsPosters/BattleOfBandsPoster.jpeg";
+import ThandavClassical from "/src/assets/CulturalEventsPosters/Thandav (Classical).png";
+import ThandavWestern from "/src/assets/CulturalEventsPosters/Thandav (Western).png";
+
+import Pottery from "/src/assets/Event_posters.png/Pottery Workshop.png";
+import Painting from "/src/assets/Event_posters.png/Painting.png";
+import CandleMaking from "/src/assets/Event_posters.png/Candle Making Workshop.png";
+import CandleHolder from "/src/assets/Event_posters.png/CandleHolderDecorationWorkshop.png";
+import photoboothPoster from "/src/assets/Event_posters.png/photobooth.jpeg";
 
 export interface EventData {
   id: string;
@@ -10,11 +34,13 @@ export interface EventData {
   icon: any;
   color: string;
   borderColor: string;
+  poster?: string;
   fullDescription?: string;
   rules?: string[];
   eligibility?: string;
   dateTime?: string;
   venue?: string;
+  registrationLink?: string;
 }
 
 interface EventsProps {
@@ -23,310 +49,241 @@ interface EventsProps {
 
 export function Events({ onEventClick }: EventsProps) {
   const events: EventData[] = [
-    // Technical Events
+    // Technical Day Events
     {
-      id: 'hack4sdgs',
-      title: 'HACK4SDGs',
+      id: 'hardwarehustle',
+      title: 'Hardware Hustle',
       category: 'Technical',
-      description: '24-hour hackathon focused on UN Sustainable Development Goals.',
+      description: 'Hardware design and innovation challenge.',
+      poster: hardwarehustlePoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
-      fullDescription: 'Build innovative tech solutions addressing UN Sustainable Development Goals. Teams will develop projects that create real-world impact.',
-      rules: [
-        'Team size: 2-4 members',
-        '24-hour development time',
-        'Project must align with SDG themes',
-        'Open source encouraged',
-        'All code must be original',
-      ],
-      eligibility: 'Open to all college students',
-      dateTime: 'March 31, 2026 - 10:00 AM to April 1, 2026 - 10:00 AM',
-      venue: 'CSE Block - Lab 301',
+      registrationLink: 'https://forms.gle/oDGD8N9dAjZVB2RA9',
     },
     {
-      id: 'sambhasha',
-      title: 'SAMBHASHA',
+      id: 'chaos2clarity',
+      title: 'Chaos2Clarity',
       category: 'Technical',
-      description: 'Technical paper presentation competition on emerging technologies.',
+      description: 'Problem-solving and debugging competition.',
       icon: Code,
+      poster: Chaos2Clarity,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
-      fullDescription: 'Present your research and ideas on cutting-edge technology topics. Showcase your technical expertise and communication skills.',
-      rules: [
-        'Individual or team of 2',
-        '15-minute presentation + 5-minute Q&A',
-        'Original research required',
-        'PPT/PDF format accepted',
-        'Judged on content, delivery, and innovation',
-      ],
-      eligibility: 'Open to UG and PG students',
-      dateTime: 'April 1, 2026 - 2:00 PM',
-      venue: 'Seminar Hall A',
+      registrationLink: 'https://forms.gle/LKyhVRJUQ9hbp6XU7',
     },
     {
-      id: 'hacknexus',
-      title: 'HACK NEXUS',
+      id: 'trash2tech',
+      title: 'Trash2Tech',
       category: 'Technical',
-      description: 'Web3 and blockchain development challenge.',
-      icon: Code,
+      description: 'Upcycling and sustainable technology innovation.',
+      poster: trashtotechPoster,
+      icon: Lightbulb,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
-      fullDescription: 'Dive into the decentralized future. Build Web3 applications, smart contracts, and blockchain solutions.',
-      rules: [
-        'Team size: 1-3 members',
-        '12-hour sprint',
-        'Must use blockchain technology',
-        'Deploy to testnet',
-        'Demo required',
-      ],
-      eligibility: 'Students with basic blockchain knowledge',
-      dateTime: 'April 1, 2026 - 9:00 AM to 9:00 PM',
-      venue: 'Innovation Lab',
+      registrationLink: 'https://forms.gle/GbPWW8ReePoYpTV78',
     },
     {
-      id: 'techhunt',
-      title: 'TECH HUNT',
+      id: 'embedx',
+      title: 'EmbedX',
       category: 'Technical',
-      description: 'Campus-wide technical treasure hunt with coding challenges.',
+      description: 'Embedded systems and IoT challenge.',
+      poster: embedxPoster,
       icon: Code,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
-      fullDescription: 'Solve technical riddles, crack codes, and navigate through campus to find hidden clues. A perfect blend of logic, coding, and adventure.',
-      rules: [
-        'Team of 2-3 members',
-        'Solve puzzles to get next location',
-        'Coding challenges at each checkpoint',
-        'Time-based scoring',
-        'No external help allowed',
-      ],
-      eligibility: 'All students',
-      dateTime: 'April 2, 2026 - 11:00 AM',
-      venue: 'Campus Wide',
+      registrationLink: 'https://forms.gle/s6cp5S9AwM111kSq6',
     },
     {
-      id: 'assistivetech',
-      title: 'ASSISTIVE TECH MAKERS',
+      id: 'raconteur',
+      title: 'Raconteur',
       category: 'Technical',
-      description: 'Build technology solutions for accessibility and inclusion.',
-      icon: Lightbulb,
+      description: 'Technical storytelling and presentation competition.',
+      poster: raconteurPoster,
+      icon: Mic,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
-      fullDescription: 'Create assistive technology that empowers people with disabilities. Focus on real-world impact and accessibility.',
-      rules: [
-        'Team size: 2-4 members',
-        'Prototype or working demo required',
-        'Focus on accessibility',
-        'User-centered design approach',
-        'Judged on impact and feasibility',
-      ],
-      eligibility: 'All engineering students',
-      dateTime: 'March 31-April 1, 2026',
-      venue: 'Design Lab',
+      registrationLink: 'https://forms.gle/BjiBEHKRv5RAEWUy5',
     },
     {
-      id: 'blinduiux',
-      title: 'BLIND UI/UX',
+      id: 'chipai_newgen',
+      title: 'ChipAI_NewGen',
       category: 'Technical',
-      description: 'Design interfaces without seeing them - test your UX intuition!',
-      icon: Lightbulb,
+      description: 'AI and chip design innovation challenge.',
+      poster: chipeainewgenPoster,
+      icon: Code,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
-      fullDescription: 'Design user interfaces based solely on descriptions and user needs. Experience design from a different perspective.',
-      rules: [
-        'Individual participation',
-        'Design blindfolded or without visual feedback',
-        'Time limit: 1 hour',
-        'Use provided design tools',
-        'Judged on usability and creativity',
-      ],
-      eligibility: 'Students interested in UI/UX',
-      dateTime: 'April 2, 2026 - 3:00 PM',
-      venue: 'Design Studio',
+      registrationLink: 'https://forms.gle/LAay1VpCLffmufX38',
+    },
+    {
+      id: 'innoventure',
+      title: 'Innoventure',
+      category: 'Technical',
+      description: 'Startup pitch and innovation showcase.',
+      poster: innoventurePoster,
+      icon: Lightbulb,
+      color: '#ff00ff',
+      borderColor: 'neon-border-purple',
+      registrationLink: 'https://forms.gle/GZV35YcXwTcA3djx9',
+    },
+    {
+      id: 'codeescape',
+      title: 'Code & Escape',
+      category: 'Technical',
+      description: 'Coding challenges in an escape room format.',
+      icon: Code,
+      poster: codeescape,
+      color: '#00ffff',
+      borderColor: 'neon-border-blue',
+      registrationLink: 'https://forms.gle/X8otii5Q55TiXbcH9',
+    },
+    {
+      id: 'algohack',
+      title: 'AlgoHack 1.O',
+      category: 'Technical',
+      description: 'Algorithm design and competitive programming.',
+      poster: algohack10Poster,
+      icon: Code,
+      color: '#ff1493',
+      borderColor: 'neon-border-pink',
+      registrationLink: 'https://forms.gle/DNuNhiGiDgzBaHbV7',
+    },
+    {
+      id: 'buildsphere',
+      title: 'BuildSphere',
+      category: 'Technical',
+      description: 'Full-stack development and project building competition.',
+      poster: buildspherePoster,
+      icon: Code,
+      color: '#ff00ff',
+      borderColor: 'neon-border-purple',
+      registrationLink: 'https://forms.gle/Ds21kQ1tbhg92j1M9',
     },
 
-    // Cultural Events
+    // Cultural Day Events
     {
-      id: 'thandav',
-      title: 'THANDAV',
+      id: 'battleofbands',
+      title: 'Battle of Bands',
       category: 'Cultural',
-      description: 'Solo and group dance competition. Show your moves!',
+      description: 'Rock the stage with your band!',
       icon: Music,
+      poster: BattleOfBandsPoster, 
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
-      fullDescription: 'Express yourself through dance. Solo and group categories available. All dance forms welcome.',
-      rules: [
-        'Solo: 1 participant, Group: 5-15 members',
-        'Performance time: 5-8 minutes',
-        'All dance forms allowed',
-        'Bring your own music (USB/aux)',
-        'Judged on choreography, sync, expression',
-      ],
-      eligibility: 'All students',
-      dateTime: 'April 1, 2026 - 6:00 PM',
-      venue: 'Open Arena',
+      registrationLink: 'https://forms.gle/hpuRoCpeKiTjQPZJ7',
+    },
+    {
+      id: 'svarautsav',
+      title: 'Svarautsav',
+      category: 'Cultural',
+      description: 'Classical and contemporary music competition.',
+      icon: Music,
+      poster: SvarautsavPoster,
+      color: '#00ffff',
+      borderColor: 'neon-border-blue',
+      registrationLink: 'https://forms.gle/dtoQCPyMAsHo9cL87',
+    },
+    {
+      id: 'thandavclassical',
+      title: 'Thandav Classical',
+      category: 'Cultural',
+      description: 'Solo and group dance competition.',
+      icon: Music,
+      poster: ThandavClassical,
+      color: '#ff1493',
+      borderColor: 'neon-border-pink',
+      registrationLink: 'https://forms.gle/7PPe1gnC2L3ZQ7KN6',
+    },
+    {
+      id: 'thandavwestern',
+      title: 'Thandav Western',
+      category: 'Cultural',
+      description: 'Solo and group dance competition.',
+      icon: Music,
+      poster: ThandavWestern,
+      color: '#ff1493',
+      borderColor: 'neon-border-pink',
+      registrationLink: 'https://forms.gle/QDdxfpqFEnLKA32Q9',
     },
     {
       id: 'chitraang',
-      title: 'CHITRAANG',
+      title: 'Chitraang',
       category: 'Cultural',
-      description: 'Live painting and art competition. Unleash your creativity!',
+      description: 'Live painting and art competition.',
       icon: Palette,
-      color: '#00ffff',
-      borderColor: 'neon-border-blue',
-      fullDescription: 'Create stunning artwork on the spot. Theme-based painting competition.',
-      rules: [
-        'Individual participation',
-        'Theme revealed on spot',
-        'Time limit: 2 hours',
-        'Canvas and basic materials provided',
-        'Bring your own specialty tools',
-      ],
-      eligibility: 'All art enthusiasts',
-      dateTime: 'March 31, 2026 - 2:00 PM',
-      venue: 'Art Gallery',
-    },
-    {
-      id: 'symphony',
-      title: 'SYMPHONY',
-      category: 'Cultural',
-      description: 'Battle of the bands! Rock the stage with your music.',
-      icon: Music,
-      color: '#ff1493',
-      borderColor: 'neon-border-pink',
-      fullDescription: 'Form your band and compete against the best. Original compositions and covers both accepted.',
-      rules: [
-        'Band size: 3-7 members',
-        'Performance time: 15 minutes',
-        'Sound check 30 minutes before',
-        'Basic equipment provided',
-        'Mix of original and covers allowed',
-      ],
-      eligibility: 'College bands',
-      dateTime: 'April 1, 2026 - 7:00 PM',
-      venue: 'Main Stage',
-    },
-    {
-      id: 'rhythm',
-      title: 'RHYTHM',
-      category: 'Cultural',
-      description: 'Beat boxing and percussion performance competition.',
-      icon: Mic,
+      poster: ChitraangPoster,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
-      fullDescription: 'Showcase your rhythmic talents. Beat boxing, percussion, and vocal percussion categories.',
-      rules: [
-        'Solo or duo',
-        'Performance time: 3-5 minutes',
-        'Mic provided, no backing track',
-        'All vocal percussion styles allowed',
-        'Judged on complexity and creativity',
-      ],
-      eligibility: 'All students',
-      dateTime: 'April 2, 2026 - 5:00 PM',
-      venue: 'Auditorium',
+      registrationLink: 'https://forms.gle/V9PfEQoUAFTjdQZD9',
     },
     {
-      id: 'poetsarena',
-      title: "THE POET'S ARENA",
+      id: 'picit',
+      title: 'PicIt',
       category: 'Cultural',
-      description: 'Poetry slam and spoken word performance battle.',
-      icon: Mic,
+      description: 'Photography and visual storytelling competition.',
+      icon: Palette,
+      poster: PicitPoster,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
-      fullDescription: 'Express through words. Poetry, shayari, and spoken word performances. English, Hindi, Telugu, or Urdu.',
-      rules: [
-        'Individual participation',
-        'Time limit: 3 minutes',
-        'Original compositions only',
-        'Any language allowed',
-        'Props not allowed',
-      ],
-      eligibility: 'All poetry lovers',
-      dateTime: 'April 2, 2026 - 4:00 PM',
-      venue: 'Amphitheater',
+      registrationLink: 'https://forms.gle/v4hRLXELzDvEKKBJ9',
     },
 
-    // Workshop Events
+    // Workshops
     {
       id: 'pottery',
-      title: 'POTTERY',
+      title: 'Pottery',
       category: 'Workshop',
-      description: 'Hands-on pottery making workshop. Create your own ceramic art.',
+      description: 'Hands-on pottery making workshop.',
       icon: Brush,
+      poster: Pottery,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
-      fullDescription: 'Learn traditional pottery techniques from expert artisans. Create your own ceramic pieces to take home.',
-      rules: [
-        'Limited to 30 participants per session',
-        'All materials provided',
-        'Wear comfortable clothing',
-        'Session duration: 2 hours',
-        'Take home your creation',
-      ],
-      eligibility: 'All participants (registration required)',
-      dateTime: 'March 31, 2026 - 11:00 AM & 3:00 PM',
-      venue: 'Workshop Area',
+      registrationLink: 'https://forms.gle/dug58hULS7b2ewa69',
     },
     {
-      id: 'resinart',
-      title: 'RESIN ART',
+      id: 'candlemaking',
+      title: 'Candle Making',
       category: 'Workshop',
-      description: 'Create beautiful resin art pieces with expert guidance.',
-      icon: Palette,
+      description: 'Create beautiful handmade candles.',
+      icon: Brush,
+      poster: CandleMaking,
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
-      fullDescription: 'Explore resin art techniques. Create keychains, coasters, and decorative pieces.',
-      rules: [
-        'Limited to 25 participants per session',
-        'All materials and safety gear provided',
-        'Minimum age: 16 years',
-        'Session duration: 2.5 hours',
-        'Pieces need 24hr to cure (pickup next day)',
-      ],
-      eligibility: 'All participants (registration required)',
-      dateTime: 'April 1, 2026 - 10:00 AM & 2:00 PM',
-      venue: 'Craft Studio',
+      registrationLink: 'https://forms.gle/woSomoBVPuMZHe6Z8',
     },
     {
-      id: 'totebags',
-      title: 'TOTE BAGS',
+      id: 'fabricpainting',
+      title: 'Fabric Painting',
       category: 'Workshop',
-      description: 'Design and paint your own custom tote bags.',
-      icon: Brush,
+      description: 'Learn fabric painting techniques.',
+      icon: Palette,
+      poster: Painting,
       color: '#00ffff',
       borderColor: 'neon-border-blue',
-      fullDescription: 'Customize your own tote bag with fabric paints, stencils, and creative techniques.',
-      rules: [
-        'Limited to 40 participants per session',
-        'Blank tote bags provided',
-        'Paints and brushes included',
-        'Session duration: 1.5 hours',
-        'Take your tote bag home',
-      ],
-      eligibility: 'All participants (registration required)',
-      dateTime: 'March 31 & April 1, 2026 - Multiple slots',
-      venue: 'Art Room',
+      registrationLink: 'https://forms.gle/n4k1sCTFgzDGAKST7',
     },
     {
-      id: 'capspray',
-      title: 'CAP SPRAY PAINTING',
+      id: 'candleholder',
+      title: 'Candle Holder Decoration',
       category: 'Workshop',
-      description: 'Learn spray painting techniques and customize caps.',
-      icon: Palette,
+      description: 'Design and decorate custom candle holders.',
+      icon: Brush,
+      poster: CandleHolder,
       color: '#ff1493',
       borderColor: 'neon-border-pink',
-      fullDescription: 'Urban art meets fashion. Learn spray painting and stenciling to create custom designed caps.',
-      rules: [
-        'Limited to 30 participants per session',
-        'Caps and spray paints provided',
-        'Outdoor workshop',
-        'Session duration: 2 hours',
-        'Bring your creativity!',
-      ],
-      eligibility: 'All participants (registration required)',
-      dateTime: 'April 2, 2026 - 10:00 AM & 2:00 PM',
-      venue: 'Outdoor Workshop Zone',
+      registrationLink: 'https://forms.gle/tQyNz4jf4TthyUZcA',
+    },
+    {
+      id: 'photobooth',
+      title: 'Photobhooth',
+      category: 'Workshop',
+      description: 'Capture moments!',
+      icon: Brush,
+      poster: photoboothPoster,
+      color: '#ff1493',
+      borderColor: 'neon-border-pink',
+      
     },
   ];
 
@@ -431,8 +388,12 @@ export function Events({ onEventClick }: EventsProps) {
                 style={{ borderColor: event.color + '60' }}
                 onClick={() => onEventClick?.(event)}
               >
-                <div className="mb-4 sm:mb-6" style={{ color: event.color }}>
-                  <event.icon className="w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300" />
+                <div className="mb-4 sm:mb-6 w-full h-64 overflow-hidden pixel-corners bg-black">
+                    <img
+                        src={event.poster}
+                        alt={event.title}
+                        className="w-full h-full object-contain transition-transform duration-300"
+                    />
                 </div>
 
                 <h3
@@ -446,15 +407,34 @@ export function Events({ onEventClick }: EventsProps) {
                   {event.description}
                 </p>
 
-                <button
-                  className="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
-                  style={{
-                    color: event.color,
-                    borderColor: event.color,
-                  }}
-                >
-                  VIEW DETAILS
-                </button>
+                <div className="flex flex-col gap-2">
+                  <button
+                    className="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
+                    style={{
+                      color: event.color,
+                      borderColor: event.color,
+                    }}
+                  >
+                    VIEW DETAILS
+                  </button>
+                  
+                  {event.registrationLink && (
+                    <a
+                      href={event.registrationLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300 text-center"
+                      style={{
+                        color: '#00ff00',
+                        borderColor: '#00ff00',
+                        textShadow: '0 0 5px #00ff00',
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      REGISTER NOW
+                    </a>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>

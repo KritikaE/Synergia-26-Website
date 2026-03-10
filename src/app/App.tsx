@@ -1,27 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RouterProvider } from 'react-router';
 import { motion } from 'motion/react';
 import { InsertCoinLoader } from './components/InsertCoinLoader';
 import { router } from './routes';
+import butterflyVideo from '../assets/butterfly.mp4';
 
 export default function App() {
-  const [showLoader, setShowLoader] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  const [startupPhase, setStartupPhase] = useState<'loader' | 'video' | 'content'>('loader');
+  const [fadeVideo, setFadeVideo] = useState(false);
 
   const handleLoaderComplete = () => {
-    setShowLoader(false);
-    setTimeout(() => {
-      setShowContent(true);
-    }, 100);
+    setStartupPhase('video');
   };
 
   return (
     <>
-      {showLoader && <InsertCoinLoader onComplete={handleLoaderComplete} />}
+      {startupPhase === 'loader' && <InsertCoinLoader onComplete={handleLoaderComplete} />}
       
-      {showContent && (
+
+      {startupPhase === 'video' && (
+        <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
+          <video
+            autoPlay
+            muted
+            playsInline
+            onEnded={() => {
+                setFadeVideo(true);
+                setTimeout(() => setStartupPhase('content'), 600);
+            }}
+            className={`w-full h-full object-cover transition-opacity duration-500 ${
+                fadeVideo ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <source src={butterflyVideo} type="video/mp4" />
+          </video>
+        </div>
+      )}
+      
+      {startupPhase === 'content' && (
         <motion.div
-          initial={{ scale: 1.2, opacity: 0 }}
+          initial={{ scale: 1.05, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >

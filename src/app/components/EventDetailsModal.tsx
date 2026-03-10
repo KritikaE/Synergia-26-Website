@@ -13,8 +13,12 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
   if (!event) return null;
 
   const handleRegister = () => {
-    onRegister?.(event.id);
-    alert(`Successfully registered for ${event.title}!`);
+    if (event.registrationLink) {
+      window.open(event.registrationLink, '_blank', 'noopener,noreferrer');
+    } else {
+      onRegister?.(event.id);
+      alert(`Registration for ${event.title} will open soon!`);
+    }
   };
 
   return (
@@ -50,6 +54,7 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
 
               {/* Content */}
               <div className="p-6 sm:p-8 md:p-10 lg:p-12">
+                
                 {/* Header */}
                 <div className="mb-6 sm:mb-8">
                   <div className="flex items-start gap-4 mb-4">
@@ -80,6 +85,17 @@ export function EventDetailsModal({ event, isOpen, onClose, onRegister }: EventD
                     </div>
                   </div>
                 </div>
+
+                {/* Poster */}
+                {event.poster && (
+                <div className="mb-6 flex justify-center">
+                    <img
+                      src={event.poster}
+                      alt={event.title}
+                      className="w-full max-h-[400px] object-contain rounded-lg border border-gray-700"
+                    />
+              </div>
+              )}
 
                 {/* Event Info Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 sm:mb-8">

@@ -6,6 +6,7 @@ const img1 = "https://picsum.photos/400/300";
 const img2 = "https://picsum.photos/401/300";
 const img3 = "https://picsum.photos/402/300";
 
+
 const SYNERGIA_PHOTOS = [img1, img2, img3];
 
 const HeroMosaic: React.FC = () => {

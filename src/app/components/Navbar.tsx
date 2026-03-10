@@ -16,7 +16,7 @@ export function Navbar() {
     { path: '/stalls', label: 'Stalls' },
     { path: '/schedule', label: 'Schedule' },
     { path: '/sponsors', label: 'Sponsors' },
-    { path: '/handbook', label: 'Handbook' },
+    { path: '/handbook', label: 'Map' },
     { path: '/contact', label: 'Contact' },
   ];
 

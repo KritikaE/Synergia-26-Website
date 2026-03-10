@@ -120,7 +120,7 @@ export function AboutSynergia() {
               textShadow: '0 0 20px rgba(0, 255, 255, 0.4)',
             }}
           >
-            Welcome to Synergia 2025 – Where Innovation Meets Celebration!
+            Welcome to Synergia 2026 – Where Innovation Meets Celebration!
           </motion.h3>
 
           {/* Body Text */}
