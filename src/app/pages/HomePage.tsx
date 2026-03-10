@@ -22,10 +22,6 @@ Updated upstream
 
       <HeroMosaic />
 
-      <AboutSynergia />
-
-      {/* ✅ NEW SCHEDULE SECTION */}
-      <Schedule />
 
 Stashed changes
       <Footer />
