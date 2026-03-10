@@ -147,7 +147,7 @@ export function AboutSynergia() {
                 technology and culture
               </span>{' '}
               at Synergia 2026! This{' '}
-              <span className="font-semibold text-white">three-day extravaganza</span> at BVRIT
+              <span className="font-semibold text-white">two-day extravaganza</span> at BVRIT
               Hyderabad brings together thrilling competitions, mesmerizing performances, and{' '}
               <span
                 className="font-semibold"
