@@ -9,22 +9,22 @@ import trashtotechPoster from "../../assets/events/trashtotech.jpeg";
 import innoventurePoster from "../../assets/events/innoventure.jpeg";
 import algohack10Poster from "../../assets/events/algohack10.jpeg";
 import embedxPoster from "../../assets/events/embedx.jpeg";
-import codeescape from "/src/assets/Event_posters.png/Code&Escape.png";
-import Chaos2Clarity from "/src/assets/Event_posters.png/Chaos2Clarity.png";
+import codeescape from "/src/assets/events/Code&Escape.png";
+import Chaos2Clarity from "/src/assets/events/Chaos2Clarity.png";
 
 
-import SvarautsavPoster from "../../assets/CulturalEventsPosters/SvarautsavPoster.jpeg";
-import PicitPoster from "../../assets/CulturalEventsPosters/PicitPoster.jpeg";
-import ChitraangPoster from "../../assets/CulturalEventsPosters/ChitraangPoster.jpeg";
-import BattleOfBandsPoster from "../../assets/CulturalEventsPosters/BattleOfBandsPoster.jpeg";
-import ThandavClassical from "/src/assets/CulturalEventsPosters/Thandav (Classical).png";
-import ThandavWestern from "/src/assets/CulturalEventsPosters/Thandav (Western).png";
+import SvarautsavPoster from "../../assets/events/SvarautsavPoster.jpeg";
+import PicitPoster from "../../assets/events/PicitPoster.jpeg";
+import ChitraangPoster from "../../assets/events/ChitraangPoster.jpeg";
+import BattleOfBandsPoster from "../../assets/events/BattleOfBandsPoster.jpeg";
+import ThandavClassical from "/src/assets/events/Thandav (Classical).png";
+import ThandavWestern from "/src/assets/events/Thandav (Western).png";
 
-import Pottery from "/src/assets/Event_posters.png/Pottery Workshop.png";
-import Painting from "/src/assets/Event_posters.png/Painting.png";
-import CandleMaking from "/src/assets/Event_posters.png/Candle Making Workshop.png";
-import CandleHolder from "/src/assets/Event_posters.png/CandleHolderDecorationWorkshop.png";
-import photoboothPoster from "/src/assets/Event_posters.png/photobooth.jpeg";
+import Pottery from "/src/assets/events/Pottery Workshop.png";
+import Painting from "/src/assets/events/Painting.png";
+import CandleMaking from "/src/assets/events/Candle Making Workshop.png";
+import CandleHolder from "/src/assets/events/CandleHolderDecorationWorkshop.png";
+import photoboothPoster from "/src/assets/events/photobooth.jpeg";
 
 export interface EventData {
   id: string;
