@@ -17,9 +17,7 @@ Updated upstream
       <AboutSynergia />
       <VideoGrid />
       <HeroMosaic />
-
       <Navbar />
-
       <HeroMosaic />
 
 
