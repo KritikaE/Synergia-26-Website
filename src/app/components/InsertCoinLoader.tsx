@@ -155,43 +155,6 @@ export function InsertCoinLoader({ onComplete }: InsertCoinLoaderProps) {
               </div>
             </motion.div>
           )}
-
-          {/* Glitch Phase */}
-          {phase === 'glitch' && (
-            <motion.div
-              animate={{
-                x: [0, -10, 10, -5, 5, 0],
-                filter: [
-                  'none',
-                  'hue-rotate(90deg)',
-                  'hue-rotate(-90deg)',
-                  'hue-rotate(180deg)',
-                  'none',
-                ],
-              }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-black"
-            >
-              <motion.div
-                animate={{
-                  opacity: [1, 0, 1, 0, 1],
-                  scale: [1, 1.1, 0.9, 1.05, 1],
-                }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <div
-                  className="font-['Press_Start_2P'] text-4xl sm:text-6xl"
-                  style={{
-                    color: '#00ffff',
-                    textShadow: '5px 0 #ff00ff, -5px 0 #00ff00',
-                  }}
-                >
-                  SYNERGIA 2026
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
         </motion.div>
       )}
     </AnimatePresence>
