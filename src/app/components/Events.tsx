@@ -273,6 +273,17 @@ export function Events({ onEventClick }: EventsProps) {
       borderColor: 'neon-border-pink',
       registrationLink: 'https://forms.gle/tQyNz4jf4TthyUZcA',
     },
+    {
+      id: 'photobooth',
+      title: 'Photobhooth',
+      category: 'Workshop',
+      description: 'Capture moments!',
+      icon: Brush,
+      poster: CandleHolder,
+      color: '#ff1493',
+      borderColor: 'neon-border-pink',
+      
+    },
   ];
 
   const [activeCategory, setActiveCategory] = useState(0);
