@@ -333,7 +333,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#00ffff',
       borderColor: 'neon-border-blue',
       fullDescription: 'Play exciting games and win prizes.',
-      highlights: ['Board Games', 'Arcade Games'],
+      highlights: ['Wire Buzz', 'Ball Maze', 'Match the Colour', 'Goal It', 'Unlock Your Luck', 'Sort Balls', 'Ball into Hole', 'Straw Game'],
       location: 'Sports Ground',
     },
     {
@@ -345,7 +345,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#ff1493',
       borderColor: 'neon-border-pink',
       fullDescription: 'More gaming fun and entertainment.',
-      highlights: ['Card Games', 'Group Activities'],
+      highlights: ['Buzz Wire', 'Hand Hop Scotch', 'Balloon Dart', 'Word Guessing', 'Guess the Character', 'Guess the Number', 'Die Art Coin'],
       location: 'Sports Ground',
     },
     {
@@ -357,7 +357,7 @@ export function Stalls({ onStallClick }: StallsProps) {
       color: '#ff00ff',
       borderColor: 'neon-border-purple',
       fullDescription: 'Even more games to enjoy.',
-      highlights: ['Party Games', 'Prizes'],
+      highlights: ['Roll the Ball', 'Spin the Wheel', 'String Game', 'Ring Game', 'Blowing the Cup', 'Blindfold Drawing', 'Luck Game'],
       location: 'Sports Ground',
     },
   ];
