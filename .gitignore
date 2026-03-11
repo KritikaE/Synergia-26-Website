@@ -1,4 +1,6 @@
 node_modules
 src/assets/Synergia25/
 src/assets/events/
+src/assets/videos/
 optimize-images.js
+compress-videos.cjs

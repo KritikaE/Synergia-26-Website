@@ -1,8 +1,8 @@
-import rampWalk from '../../assets/videos/RampWalk_Synergia25.mp4';
-import concert from '../../assets/videos/Concert_Synergia25.mp4';
-import events from '../../assets/videos/Events_Synergia25.mp4';
-import flashmob from '../../assets/videos/Flashmob_Synergia25.mp4';
-import bannerLaunch from '../../assets/videos/BannerLaunch_Synergia26.mp4';
+import rampWalk from '../../assets/videos_web/RampWalk_Synergia25.mp4';
+import concert from '../../assets/videos_web/Concert_Synergia25.mp4';
+import events from '../../assets/videos_web/Events_Synergia25.mp4';
+import flashmob from '../../assets/videos_web/Flashmob_Synergia25.mp4';
+import bannerLaunch from '../../assets/videos_web/BannerLaunch_Synergia26.mp4';
 
 const videos = [rampWalk, concert, events, flashmob, bannerLaunch];
 
