@@ -74,7 +74,7 @@ class="h-10 md:h-20 w-auto object-contain">
 
 <!-- STALL MODAL -->
 
-<div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-50">
+<div id="modal" class="fixed inset-0 items-center justify-center bg-black/80 z-50" style="display:none;">
 
 <div id="modalContent" class="bg-[#120020] border-2 p-8 max-w-lg w-[90%] relative">
 
@@ -100,174 +100,157 @@ class="h-10 md:h-20 w-auto object-contain">
 
 <script>
 
-/* ================= STALL DATA ================= */
-
-const stalls=[
-
-{id:'biryani',title:'BIRYANI',category:'Food',description:'Authentic aromatic biryani.',color:'#ff00ff',fullDescription:'Experience the rich flavors of authentic biryani.',highlights:['Chicken Biryani','Veg Biryani','Freshly prepared'],location:'Sports Ground'},
-
-{id:'milkshakes',title:'MILKSHAKES',category:'Beverages',description:'Thick creamy milkshakes.',color:'#ff1493',fullDescription:'Indulge in thick creamy milkshakes.',highlights:['Oreo','Chocolate','Strawberry'],location:'Sports Ground'},
-
-{id:'burgers-sandwiches',title:'BURGERS & SANDWICHES',category:'Food',description:'Juicy burgers and sandwiches.',color:'#00ffff',fullDescription:'Classic burgers and creative sandwiches.',highlights:['Veg Burger','Chicken Burger'],location:'Sports Ground'}
-
+/* ================= STALL DATA (full, from Stalls.tsx) ================= */
+const STALLS = [
+  // Food
+  { id:'biryani',      title:'BIRYANI',             category:'Food',       description:'Authentic aromatic biryani with flavorful spices.',  color:'#ff00ff', fullDescription:'Experience the rich flavors of authentic biryani.', highlights:['Chicken Biryani','Veg Biryani','Freshly prepared'], location:'Sports Ground', keywords:['biriyani','biryani','rice','chicken','veg','indian','spicy','aromatic'] },
+  { id:'burgers-sandwiches', title:'BURGERS AND SANDWICHES', category:'Food', description:'Juicy burgers and fresh sandwiches.', color:'#00ffff', fullDescription:'Classic burgers and creative sandwiches.', highlights:['Paneer Sandwich','Chicken Sandwich','PBJ Sandwich','Veg Burger','Chicken Burger'], location:'Sports Ground', keywords:['burger','sandwich','club sandwich','veg burger','chicken burger','fast food'] },
+  { id:'chinese',      title:'CHINESE',             category:'Food',       description:'Delicious Chinese cuisine.',                          color:'#ff1493', fullDescription:'Satisfy your Chinese food cravings.', highlights:['Noodles','Fried Rice','Manchurian'], location:'Sports Ground', keywords:['chinese','noodles','fried rice','manchurian','hakka','spring rolls'] },
+  { id:'twisters',     title:'TWISTERS',            category:'Food',       description:'Delicious wraps and rolls.',                          color:'#00ffff', fullDescription:'Wrapped goodness with various fillings.', highlights:['Chicken Twisters','Veg Wraps'], location:'Sports Ground', keywords:['twister','wrap','roll','chicken wrap','veg wrap','paneer roll'] },
+  { id:'momos',        title:'MOMOS',               category:'Food',       description:'Steamed or fried dumplings.',                         color:'#00ffff', fullDescription:'Delicious momos with various fillings.', highlights:['Veg Momos','Paneer Momos','Chicken Momos','Chilli Oil Momos','Korean Momos'], location:'Sports Ground', keywords:['momos','dumplings','steamed','fried','chinese'] },
+  { id:'frozen-foods', title:'FROZEN FOODS',        category:'Food',       description:'Frozen treats and snacks.',                           color:'#00ffff', fullDescription:'Cool down with frozen delights.', highlights:['Ice Pops','Frozen Treats'], location:'Sports Ground', keywords:['frozen','ice pops','frozen treats'] },
+  { id:'bbq',          title:'BBQ',                 category:'Food',       description:'Smoky grilled BBQ delights.',                         color:'#ff00ff', fullDescription:'Enjoy perfectly grilled BBQ items.', highlights:['Chicken BBQ','Paneer BBQ'], location:'Sports Ground', keywords:['bbq','barbecue','grill','grilled','chicken','skewers','smoky'] },
+  // Beverages
+  { id:'milkshakes',   title:'MILKSHAKES',          category:'Beverages',  description:'Thick and creamy milkshakes in various flavors.',     color:'#ff1493', fullDescription:'Indulge in thick, creamy milkshakes.', highlights:['Oreo Milkshake','Chocolate Milkshake','KitKat Milkshake','Strawberry Milkshake','Falooda (Vanilla, Butterscotch, Chocolate)','Badam Milk'], location:'Sports Ground', keywords:['milkshake','shake','chocolate','vanilla','strawberry','oreo','thick shake','cold'] },
+  { id:'soft-drinks',  title:'SOFT DRINKS',         category:'Beverages',  description:'Refreshing soft drinks and beverages.',               color:'#ff00ff', fullDescription:'Cool down with refreshing soft drinks.', highlights:['Thums Up','Sprite','Coke','Diet Coke'], location:'Sports Ground', keywords:['soft drink','soda','coke','sprite','cola','fizzy'] },
+  { id:'water-bottles',title:'WATER BOTTLES',       category:'Beverages',  description:'Packaged drinking water bottles.',                    color:'#00ffff', fullDescription:'Stay hydrated with packaged water.', highlights:['Mineral Water','Chilled','Various sizes'], location:'Sports Ground', keywords:['water','mineral water','hydration'] },
+  { id:'goli-soda',    title:'GOLI SODA',           category:'Beverages',  description:'Traditional Indian marble soda.',                     color:'#ff1493', fullDescription:'Experience the nostalgia of Goli Soda.', highlights:['Lemon Sweet','Lemon Salt','Mango','Blueberry','Orange'], location:'Sports Ground', keywords:['goli soda','soda','marble soda','fizzy','traditional','lemon'] },
+  // Snacks
+  { id:'panipuri',     title:'PANIPURI',            category:'Snacks',     description:'Crispy puris with tangy flavored water and street food.', color:'#ff00ff', fullDescription:'Enjoy the classic Indian street food.', highlights:['Butter Pav Bhaji','Dahi Papdi','Sweet Puri','Dahi Puri','Masala Puri','Papdi Chat','Samosa Chat','Aloo Fry Chat','Pani Puri','Vada Pav','Bhel Puri'], location:'Sports Ground', keywords:['panipuri','pani puri','puri','chaat','bhel','vada pav','street food'] },
+  { id:'fritters',     title:'FRITTERS',            category:'Snacks',     description:'Crispy fried snacks and pakoras.',                    color:'#ff1493', fullDescription:'Hot and crispy fritters.', highlights:['Vegetable Pakoras','Onion Bhajis'], location:'Sports Ground', keywords:['fritters','pakora','bhaji','fried','snacks','crispy','chutney'] },
+  { id:'popcorn',      title:'POPCORN',             category:'Snacks',     description:'Freshly popped popcorn.',                             color:'#00ffff', fullDescription:'Freshly popped popcorn with exciting flavors.', highlights:['Sweet: Butter, Caramel, Chocolate','Savoury: Cheese, Masala, Peri-Peri, Salt'], location:'Sports Ground', keywords:['popcorn','butter','caramel','cheese','masala','snacks'] },
+  { id:'chicken-pakodi',title:'CHICKEN PAKODI',     category:'Snacks',     description:'Crispy fried chicken fritters.',                      color:'#ff00ff', fullDescription:'Spicy and crispy chicken pakodis.', highlights:['Chicken Pakodi','Egg Lollipop','Spicy','Crispy','Hot & Fresh'], location:'Sports Ground', keywords:['chicken pakodi','pakodi','fried chicken','crispy chicken'] },
+  // Desserts
+  { id:'ice-cream',    title:'ICE CREAM',           category:'Desserts',   description:'Creamy ice cream in various flavors.',                color:'#ff00ff', fullDescription:'Cool down with delicious ice cream.', highlights:['Vanilla','Chocolate','Strawberry','Butterscotch'], location:'Sports Ground', keywords:['ice cream','icecream','gelato','cold','sweet'] },
+  { id:'waffles',      title:'WAFFLES',             category:'Desserts',   description:'Crispy waffles with delicious toppings.',             color:'#ff00ff', fullDescription:'Freshly made crispy waffles.', highlights:['Belgian Waffles','Chocolate','Nutella'], location:'Sports Ground', keywords:['waffle','belgian waffle','chocolate','nutella','ice cream','dessert'] },
+  { id:'brownies',     title:'BROWNIES',            category:'Desserts',   description:'Freshly baked brownies, cupcakes, muffins and cakes.',color:'#ff00ff', fullDescription:'Indulge in fudgy brownies and delicious cakes.', highlights:['Jar Cakes','Brownies','Brownies with Ice Cream','Chocolate Truffle Pastry','Vanilla Pastry','Cupcakes','Muffins','Kunafa','Tea Cakes','Apricot Delight'], location:'Sports Ground', keywords:['brownie','cupcake','cake','muffin','chocolate','baked','dessert'] },
+  { id:'ice-gola',     title:'ICE GOLA',            category:'Desserts',   description:'Colorful shaved ice with flavored syrups.',           color:'#ff1493', fullDescription:'Beat the heat with colorful ice golas.', highlights:['Multiple Flavors','Refreshing'], location:'Sports Ground', keywords:['ice gola','gola','shaved ice','kala khatta','ice','cold','syrup'] },
+  { id:'chocolate-covered', title:'CHOCOLATE COVERED EVERYTHING', category:'Desserts', description:'Everything dipped in delicious chocolate.', color:'#00ffff', fullDescription:'Chocolate lovers paradise!', highlights:['Strawberry Chocolate Bowl','Only Strawberry Chocolate','Only Cake Chocolate','Chocolate Cake Bowl','Customize Your Own Bowl (Strawberry, Cake, Marshmallow, Oreo, KitKat, Sprinkles, Choco Chips)','Marshmallow Chocolate Bowl'], location:'Sports Ground', keywords:['chocolate','chocolate covered','strawberry','pretzel','oreo','dipped'] },
+  { id:'churros-cheesecake-donuts', title:'CHURROS, CHEESECAKE & DONUTS', category:'Desserts', description:'Delicious churros, cheesecake and donuts.', color:'#ff1493', fullDescription:'Indulge in sweet treats - churros, cheesecake, and donuts.', highlights:['Chocolate Bowl Churros','Cheesecake','Biscoff','Nutella Bomboloni','Bread Roll','Chocolate Fudge','Cake Pops','Tanghulu','Chocolate Mousse','Gulab Jamun'], location:'Sports Ground', keywords:['cookie','cheesecake','churros','chocolate chip','baked','sweet','donut'] },
+  { id:'dora-cakes',   title:'DORA CAKES',          category:'Desserts',   description:'Soft Japanese-style pancakes.',                       color:'#ff1493', fullDescription:'Fluffy pancakes with sweet filling.', highlights:['Red Bean','Chocolate','Custard'], location:'Sports Ground', keywords:['dora cake','pancake','japanese','soft','sweet'] },
+  // Activities
+  { id:'diy',          title:'DIY',                 category:'Activities', description:'Do-it-yourself craft activities.',                    color:'#00ffff', fullDescription:'Create your own crafts and art.', highlights:['Craft Kits','Art Supplies','Creative Fun'], location:'Sports Ground', keywords:['diy','art','craft','activities','fun','board games'] },
+  { id:'make-chip-bag',title:'MAKE YOUR OWN CHIP BAG', category:'Activities', description:'Create your custom chip bag.',                   color:'#ff1493', fullDescription:'Choose from various chips and create your mix.', highlights:['Mix & Match','Custom Portions'], location:'Sports Ground', keywords:['chip bag','chips','custom','make your own','snacks','diy'] },
+  { id:'accessories',  title:'ACCESSORIES',         category:'Activities', description:'Fashion accessories and merchandise.',               color:'#ff00ff', fullDescription:'Browse through trendy accessories.', highlights:['Rings','Chains','Bracelets','Earcuffs','Necklace','Hair accessories','Mystery box'], location:'Sports Ground', keywords:['accessories','rings','chains','jewellery','fashion','merchandise'] },
+  { id:'games-1',      title:'GAMES - 1',           category:'Activities', description:'Fun games and activities.',                           color:'#00ffff', fullDescription:'Play exciting games and win prizes.', highlights:['Wire Buzz','Ball Maze','Match the Colour','Goal It','Unlock Your Luck','Sort Balls','Ball into Hole','Straw Game'], location:'Sports Ground', keywords:['games','fun','activities','play','win'] },
+  { id:'games-2',      title:'GAMES - 2',           category:'Activities', description:'More fun games and activities.',                      color:'#ff1493', fullDescription:'More gaming fun and entertainment.', highlights:['Buzz Wire','Hand Hop Scotch','Balloon Dart','Word Guessing','Guess the Character','Guess the Number','Die Art Coin','Roll the Ball','Spin the Wheel','String Game','Ring Game','Blowing the Cup','Blindfold Drawing','Luck Game'], location:'Sports Ground', keywords:['games','fun','activities','play','win','balloon dart'] },
+  { id:'games-3',      title:'GAMES - 3',           category:'Activities', description:'Additional games and entertainment.',                 color:'#ff00ff', fullDescription:'Even more games to enjoy.', highlights:['Foosball Game','String Hockey','Cups Stacking','Marbles','Find the Hidden Object in Sand'], location:'Sports Ground', keywords:['games','fun','activities','foosball','marbles'] },
 ];
 
-
-/* ================= CATEGORIES ================= */
-
-const categories=['Food','Beverages','Snacks','Desserts','Activities'];
-
-
-/* ================= RENDER ================= */
-
-function renderStalls(list=stalls){
-
-const container=document.getElementById("stallsContainer");
-container.innerHTML="";
-
-const grouped=categories.map(cat=>({
-category:cat,
-stalls:list.filter(s=>s.category===cat)
-})).filter(g=>g.stalls.length>0);
-
-if(grouped.length===0){
-
-container.innerHTML="<p style='text-align:center;color:#aaa'>No stalls found</p>";
-return;
-
-}
-
-grouped.forEach(group=>{
-
-const section=document.createElement("div");
-section.className="category-section";
-
-section.innerHTML=`<h3 class="category-title">${group.category}</h3>`;
-
-const grid=document.createElement("div");
-grid.className="stalls-grid";
-
-group.stalls.forEach(stall=>{
-
-const card=document.createElement("div");
-card.className="stall-card";
-card.style.borderColor=stall.color+"60";
-
-card.innerHTML=`
-
-<h3 class="stall-title" style="color:${stall.color}">
-${stall.title}
-</h3>
-
-<p class="stall-description">
-${stall.description}
-</p>
-
-<button class="view-details-btn"
-style="color:${stall.color};border-color:${stall.color}">
-VIEW DETAILS
-</button>
-
-`;
-
-card.querySelector("button").onclick=()=>openModal(stall);
-
-grid.appendChild(card);
-
+/* ================= WIRE UP "VIEW DETAILS" BUTTONS ================= */
+// Each static card has a button inside it; find by card id and attach onclick
+document.addEventListener('DOMContentLoaded', function() {
+  STALLS.forEach(stall => {
+    const card = document.getElementById(stall.id);
+    if (!card) return;
+    const btn = card.querySelector('button');
+    if (btn) {
+      btn.onclick = function(e) { e.stopPropagation(); openModal(stall); };
+    }
+    // Also open modal when clicking the whole card
+    card.onclick = function() { openModal(stall); };
+  });
 });
-
-section.appendChild(grid);
-container.appendChild(section);
-
-});
-
-}
-
 
 /* ================= SEARCH ================= */
-const searchInput=document.getElementById("searchInput");
+document.getElementById('searchInput').addEventListener('input', function() {
+  const query = this.value.trim().toLowerCase();
 
-searchInput.addEventListener("input",function(){
+  // Show/hide result label
+  let resultEl = document.getElementById('searchResult');
+  if (!resultEl) {
+    resultEl = document.createElement('p');
+    resultEl.id = 'searchResult';
+    resultEl.className = "mt-3 text-sm font-['Rajdhani'] text-gray-400 text-center";
+    this.closest('.relative').parentElement.appendChild(resultEl);
+  }
 
-const query=this.value.toLowerCase();
-const stalls=document.querySelectorAll("#stalls [id]");
-let found=0;
+  if (!query) {
+    // Restore everything
+    STALLS.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) { el.style.display = ''; el.closest('.grid') && showSectionHeadings(); }
+    });
+    showAllSections();
+    resultEl.textContent = '';
+    return;
+  }
 
-stalls.forEach(stall=>{
+  // Match against title, description, fullDescription, highlights, keywords, category
+  const matchedIds = new Set(
+    STALLS.filter(s =>
+      s.title.toLowerCase().includes(query) ||
+      s.category.toLowerCase().includes(query) ||
+      s.description.toLowerCase().includes(query) ||
+      (s.fullDescription && s.fullDescription.toLowerCase().includes(query)) ||
+      s.highlights.some(h => h.toLowerCase().includes(query)) ||
+      s.keywords.some(k => k.includes(query))
+    ).map(s => s.id)
+  );
 
-const name=stall.id.replaceAll("-"," ").toLowerCase();
+  // Show/hide each card
+  STALLS.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) el.style.display = matchedIds.has(s.id) ? '' : 'none';
+  });
 
-if(name.includes(query)){
-stall.style.display="";
-found++;
-}
-else{
-stall.style.display="none";
-}
+  // Hide section headings where all cards in that section are hidden
+  document.querySelectorAll('#stalls .mb-16').forEach(section => {
+    const cards = section.querySelectorAll('[id]');
+    const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
+    section.style.display = anyVisible ? '' : 'none';
+  });
 
+  const count = matchedIds.size;
+  resultEl.textContent = count > 0
+    ? `Found ${count} stall${count !== 1 ? 's' : ''} matching "${this.value.trim()}"`
+    : `No stalls found for "${this.value.trim()}"`;
 });
 
-const result=document.getElementById("searchResult");
-
-if(query===""){
-result.textContent="";
-return;
+function showAllSections() {
+  document.querySelectorAll('#stalls .mb-16').forEach(s => s.style.display = '');
 }
 
-if(found>0){
-result.textContent=`Found ${found} result(s)`;
-}
-else{
-result.textContent="No stalls found";
+function openModal(stall) {
+  const modal   = document.getElementById('modal');
+  const body    = document.getElementById('modalBody');
+  const content = document.getElementById('modalContent');
+
+  content.style.borderColor = stall.color;
+
+  body.innerHTML = `
+    <h2 class="modal-title" style="color:${stall.color};font-family:'Orbitron',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;">
+      ${stall.title}
+    </h2>
+    <p style="font-family:'Rajdhani',sans-serif;color:#d1d5db;margin-bottom:0.75rem;">
+      ${stall.fullDescription}
+    </p>
+    <p style="font-size:0.875rem;color:#9ca3af;margin-bottom:1rem;">📍 ${stall.location}</p>
+    <h3 style="font-family:'Orbitron',sans-serif;font-size:0.875rem;color:${stall.color};margin-bottom:0.5rem;letter-spacing:0.1em;">HIGHLIGHTS</h3>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+      ${stall.highlights.map(h => `
+        <li style="display:flex;align-items:flex-start;gap:0.5rem;font-family:'Rajdhani',sans-serif;font-size:0.95rem;color:#d1d5db;">
+          <span style="color:${stall.color};flex-shrink:0;margin-top:2px;">▸</span>${h}
+        </li>`).join('')}
+    </ul>
+  `;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
 
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
 });
 
-/* ================= MODAL ================= */
-
-function openModal(stall){
-
-const modal=document.getElementById("modal");
-const body=document.getElementById("modalBody");
-const content=document.getElementById("modalContent");
-
-content.style.borderColor=stall.color;
-
-body.innerHTML=`
-
-<h2 class="modal-title" style="color:${stall.color}">
-${stall.title}
-</h2>
-
-<p class="modal-description">
-${stall.fullDescription}
-</p>
-
-<p>📍 ${stall.location}</p>
-
-<h3 class="highlights-title">Highlights</h3>
-
-<ul class="highlights-list">
-
-${stall.highlights.map(h=>`<li>${h}</li>`).join("")}
-
-</ul>
-
-`;
-
-modal.classList.add("active");
-
-}
-
-
-function closeModal(){
-document.getElementById("modal").classList.remove("active");
-}
-
-
-/* ================= START ================= */
-
-renderStalls();
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 </script>
 
