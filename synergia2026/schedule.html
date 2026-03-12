@@ -1,99 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
-<title>Schedule</title>
-</head>
-<body class="bg-[#0a0015] text-white antialiased">
-<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/85 backdrop-blur-sm"
-            style="border-bottom: 1px solid rgba(0, 217, 255, 0.2); box-shadow: none;">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16 md:h-28">
-                    <div class="flex items-center" style="opacity: 1; transform: none;"><img
-        <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Synergia 2026 - Schedule</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body class="bg-[#0a0015] text-white antialiased flex flex-col min-h-screen">
-
-<!-- ================= NAVBAR ================= -->
-
-<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/85 backdrop-blur-sm"
-style="border-bottom:1px solid rgba(0,217,255,0.2);">
-
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-<div class="flex items-center justify-between h-16 md:h-28">
-
-<div class="flex items-center">
-<img src="assets/vishnu_logo.png"
-alt="BVRIT Hyderabad"
-class="h-10 md:h-20 w-auto object-contain">
-</div>
-
-<div class="hidden md:flex items-center gap-8">
-
-<a href="index.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors-cyan-400">Home</a>
-<a href="events.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Events</a>
-<a href="stalls.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Stalls</a>
-<a href="schedule.html" class="font-['Orbitron'] text-[15px] uppercase text-cyan-400">Schedule</a>
-<a href="sponsors.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Sponsors</a>
-<a href="map.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Map</a>
-<a href="contact.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Contact</a>
-
-</div>
-
-<div class="flex items-center">
-<img src="assets/sac_logo.png"
-class="h-10 md:h-20 w-auto object-contain">
-</div>
-
-</div>
-</div>
-
-</nav>
-
-
-<!-- ================= PAGE CONTENT ================= -->
-
-<div class="flex-1 mt-[64px] md:mt-[112px]">
-
-<!-- ================================================= -->
-<!-- PASTE THE SCHEDULE SECTION HERE FROM DEVTOOLS -->
-<!-- It should start with: <section ...> -->
-<!-- ================================================= -->
-            <section class="pt-36 pb-8 bg-[#0a0015] text-white px-6 min-h-screen" style="padding-top: 9rem; padding-bottom: 2rem; background-color: #0a0015; color: white; padding-left: 1.5rem; padding-right: 1.5rem; min-height: 100vh; font-family: sans-serif;">
- 
-  <!-- Google Fonts -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synergia 2026 - Schedule</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
- 
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    .schedule-section * { box-sizing: border-box; }
- 
-    .schedule-section {
-      padding-top: 9rem;
-      padding-bottom: 2rem;
-      background-color: #0a0015;
-      color: white;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      min-height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-    }
- 
     .schedule-title {
       text-align: center;
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -107,16 +23,16 @@ class="h-10 md:h-20 w-auto object-contain">
       transform: translateY(-30px);
       animation: fadeSlideDown 0.6s ease forwards;
     }
- 
+
     @keyframes fadeSlideDown {
       to { opacity: 1; transform: translateY(0); }
     }
- 
+
     @keyframes fadeSlideUp {
       from { opacity: 0; transform: translateY(40px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
+
     .tab-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -124,11 +40,11 @@ class="h-10 md:h-20 w-auto object-contain">
       max-width: 48rem;
       margin: 0 auto 4rem;
     }
- 
+
     @media (min-width: 768px) {
       .tab-grid { grid-template-columns: 1fr 1fr; }
     }
- 
+
     .tab-btn {
       padding: 1.5rem;
       border: 2px solid #1f2937;
@@ -138,31 +54,20 @@ class="h-10 md:h-20 w-auto object-contain">
       transition: all 0.3s;
       text-align: left;
     }
- 
+
     .tab-btn:hover { border-color: #4b5563; }
- 
+
     .tab-btn.active {
       border-color: #ec4899;
       background: rgba(131, 24, 67, 0.2);
       box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
     }
- 
-    .tab-btn .day-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-    }
- 
-    .tab-btn .day-theme {
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin-top: 0.25rem;
-    }
- 
-    .events-container {
-      max-width: 56rem;
-      margin: 0 auto;
-    }
- 
+
+    .tab-btn .day-label { font-size: 0.75rem; letter-spacing: 0.2em; }
+    .tab-btn .day-theme { font-size: 1.125rem; font-weight: 700; margin-top: 0.25rem; }
+
+    .events-container { max-width: 56rem; margin: 0 auto; }
+
     .event-row {
       display: flex;
       align-items: flex-start;
@@ -170,7 +75,7 @@ class="h-10 md:h-20 w-auto object-contain">
       opacity: 0;
       animation: fadeSlideUp 0.5s ease forwards;
     }
- 
+
     .event-time {
       width: 12rem;
       padding-top: 0.5rem;
@@ -184,14 +89,9 @@ class="h-10 md:h-20 w-auto object-contain">
       white-space: nowrap;
       flex-shrink: 0;
     }
- 
-    .clock-icon {
-      color: #22d3ee;
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-    }
- 
+
+    .clock-icon { color: #22d3ee; flex-shrink: 0; width: 16px; height: 16px; }
+
     .timeline-line {
       display: flex;
       flex-direction: column;
@@ -199,7 +99,7 @@ class="h-10 md:h-20 w-auto object-contain">
       padding-top: 0.75rem;
       flex-shrink: 0;
     }
- 
+
     .timeline-dot {
       width: 1rem;
       height: 1rem;
@@ -208,7 +108,7 @@ class="h-10 md:h-20 w-auto object-contain">
       box-shadow: 0 0 15px rgba(34, 211, 238, 1);
       z-index: 10;
     }
- 
+
     .timeline-stem {
       width: 2px;
       flex: 1;
@@ -216,7 +116,7 @@ class="h-10 md:h-20 w-auto object-contain">
       background: rgba(22, 78, 99, 0.5);
       margin-top: 0.5rem;
     }
- 
+
     .event-card {
       flex: 1;
       background: #131313;
@@ -225,27 +125,22 @@ class="h-10 md:h-20 w-auto object-contain">
       border: 1px solid #1f2937;
       box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
     }
- 
+
     .event-category {
       font-size: 0.625rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
     }
- 
-    .cat-technical  { color: #4ade80; }
+
+    .cat-technical   { color: #4ade80; }
     .cat-competition { color: #facc15; }
-    .cat-workshop   { color: #c084fc; }
-    .cat-keynote    { color: #f472b6; }
-    .cat-hackathon  { color: #22d3ee; }
- 
-    .event-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 0.5rem;
-      color: white;
-    }
- 
+    .cat-workshop    { color: #c084fc; }
+    .cat-keynote     { color: #f472b6; }
+    .cat-hackathon   { color: #22d3ee; }
+
+    .event-title { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; color: white; }
+
     .event-venue {
       display: flex;
       align-items: center;
@@ -254,198 +149,155 @@ class="h-10 md:h-20 w-auto object-contain">
       font-size: 0.75rem;
       color: #9ca3af;
     }
- 
-    .map-icon {
-      width: 14px;
-      height: 14px;
-      color: #9ca3af;
-      flex-shrink: 0;
-    }
- 
+
+    .map-icon { width: 14px; height: 14px; color: #9ca3af; flex-shrink: 0; }
+
     .space-y-8 > * + * { margin-top: 2rem; }
- 
-    /* Responsive: hide time column on mobile */
+
     @media (max-width: 640px) {
       .event-time { display: none; }
       .event-row { gap: 0.75rem; }
     }
   </style>
- 
-  <h2 class="schedule-title">SCHEDULE</h2>
- 
-  <div class="tab-grid" id="tab-grid">
-    <button class="tab-btn active" onclick="switchTab(0)">
-      <span class="day-label">DAY 1</span>
-      <div class="day-theme">TECHNICAL</div>
-    </button>
-    <button class="tab-btn" onclick="switchTab(1)">
-      <span class="day-label">DAY 2</span>
-      <div class="day-theme">CULTURAL &amp; WORKSHOPS</div>
-    </button>
+</head>
+
+<body class="bg-[#0a0015] text-white antialiased flex flex-col min-h-screen">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/85 backdrop-blur-sm"
+  style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-28">
+
+      <div class="flex items-center">
+        <img src="assets/vishnu_logo.png" alt="BVRIT Hyderabad" class="h-10 md:h-20 w-auto object-contain">
+      </div>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html"    class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+        <a href="events.html"   class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Events</a>
+        <a href="stalls.html"   class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Stalls</a>
+        <a href="schedule.html" class="font-['Orbitron'] text-[15px] uppercase text-cyan-400">Schedule</a>
+        <a href="sponsors.html" class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Sponsors</a>
+        <a href="map.html"      class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Map</a>
+        <a href="contact.html"  class="font-['Orbitron'] text-[15px] uppercase text-gray-300 hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center">
+        <img src="assets/sac_logo.png" class="h-10 md:h-20 w-auto object-contain">
+      </div>
+
+    </div>
   </div>
- 
-  <div class="events-container" id="events-container"></div>
- 
-  <script>
-    const days = [
-      {
-        title: "DAY 1", theme: "TECHNICAL", date: "MARCH 31, 2026",
-        events: [
-          { time: "9:00 AM – 4:30 PM",  title: "ChipAI-NewGen",   category: "Technical",  venue: "OPAL Block Simulation Lab" },
-          { time: "10:00 AM – 1:00 PM", title: "BuildSphere",      category: "Technical",  venue: "SMB- 102, 103" },
-          { time: "10:00 AM onwards",   title: "AlgoHack 1.O",     category: "Technical",  venue: "SMB training Hall" },
-          { time: "10:00 AM – 1:00 PM", title: "Code &amp; Escape",    category: "Technical",  venue: "Pearl Block, 1st floor" },
-          { time: "10:00 AM – 1:00 PM", title: "Chaos2Clarity",    category: "Technical",  venue: "SMB-207" },
-          { time: "10:00 AM – 4:00 PM", title: "Innoventure",      category: "Technical",  venue: "BFSI Hall" },
-          { time: "10:00 AM onwards",   title: "EmbedX",           category: "Technical",  venue: "SSH1" },
-          { time: "10:30 AM – 12:30 PM",title: "Raconteur",        category: "Technical",  venue: "JADE BLOCK" },
-          { time: "11:00 AM – 12:00 PM &amp; 1:00 PM - 3:00 PM", title: "Hardware Hustle", category: "Technical", venue: "Emerald block, Simulation lab" },
-          { time: "11:00 AM – 1:30 PM", title: "Trash2Tech",       category: "Technical",  venue: "BFSI hall 2" },
-        ]
-      },
-      {
-        title: "DAY 2", theme: "CULTURAL & WORKSHOPS", date: "APRIL 01, 2026",
-        events: [
-          { time: "10:00 AM onwards",   title: "Battle of Bands",               category: "Competition", venue: "Kalavedika" },
-          { time: "10:00 AM onwards",   title: "Svarautsav",                    category: "Competition", venue: "SMB Seminar Hall 4th floor" },
-          { time: "10:00 AM onwards",   title: "Thandav (Western) &amp; Thandav (Classical)", category: "Competition", venue: "Main Stage" },
-          { time: "10:00 AM onwards",   title: "Chitraang 2.0",                 category: "Competition", venue: "SMB Training hall 4th floor" },
-          { time: "10:00 AM onwards",   title: "PicIt",                         category: "Competition", venue: "Jade Block 104" },
-          { time: "10:00 AM onwards",   title: "AlgoHack 1.O",                  category: "Technical",   venue: "SMB training Hall" },
-          { time: "10:00 AM – 4:00 PM", title: "Pottery Paradise",              category: "Workshop",    venue: "Beside KALA VEDIKA" },
-          { time: "10:00 AM – 4:00 PM", title: "Candle Making",                 category: "Workshop",    venue: "JADE BLOCK" },
-          { time: "10:00 AM – 4:00 PM", title: "Candle Holder Decoration",      category: "Workshop",    venue: "SMB Lawn" },
-          { time: "10:00 AM – 4:00 PM", title: "Fabric Painting",               category: "Workshop",    venue: "DB Drawing Hall" },
-        ]
-      }
-    ];
- 
-    const categoryClass = {
-      Technical:   "cat-technical",
-      Competition: "cat-competition",
-      Workshop:    "cat-workshop",
-      Keynote:     "cat-keynote",
-      Hackathon:   "cat-hackathon",
-    };
- 
-    // SVG icons
-    const clockSVG = `<svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
-    const mapSVG   = `<svg class="map-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
- 
-    let activeTab = 0;
- 
-    function switchTab(index) {
-      activeTab = index;
-      // Update button styles
-      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === index);
-      });
-      renderEvents();
-    }
- 
-    function renderEvents() {
-      const container = document.getElementById('events-container');
-      const events = days[activeTab].events;
-      container.innerHTML = `<div class="space-y-8">${events.map((e, i) => `
-        <div class="event-row" style="animation-delay: ${i * 0.1}s">
-          <div class="event-time">
-            ${clockSVG}
-            ${e.time}
-          </div>
-          <div class="timeline-line">
-            <div class="timeline-dot"></div>
-            <div class="timeline-stem"></div>
-          </div>
-          <div class="event-card">
-            <span class="event-category ${categoryClass[e.category] || ''}">${e.category}</span>
-            <h4 class="event-title">${e.title}</h4>
-            <div class="event-venue">${mapSVG} ${e.venue}</div>
-          </div>
-        </div>
-      `).join('')}</div>`;
-    }
- 
-    // Initial render
-    renderEvents();
-  </script>
- 
-</section>
+</nav>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="flex-1 mt-[64px] md:mt-[112px]">
+
+  <section style="padding-top: 9rem; padding-bottom: 2rem; background-color: #0a0015; color: white; padding-left: 1.5rem; padding-right: 1.5rem; min-height: 100vh;">
+
+    <h2 class="schedule-title">SCHEDULE</h2>
+
+    <div class="tab-grid" id="tab-grid">
+      <button class="tab-btn active" onclick="switchTab(0)">
+        <span class="day-label">DAY 1</span>
+        <div class="day-theme">TECHNICAL</div>
+      </button>
+      <button class="tab-btn" onclick="switchTab(1)">
+        <span class="day-label">DAY 2</span>
+        <div class="day-theme">CULTURAL &amp; WORKSHOPS</div>
+      </button>
+    </div>
+
+    <div class="events-container" id="events-container"></div>
+
+  </section>
+
 </div>
 
-
 <!-- ================= FOOTER ================= -->
-
-<footer class="bg-black border-t-2 neon-border-purple py-8 text-center text-gray-400">
-© 2026 Synergia - BVRIT Hyderabad. All rights reserved.
+<footer class="bg-black border-t-2 py-8 text-center text-gray-400" style="border-color: rgba(168,85,247,0.4);">
+  &copy; 2026 Synergia - BVRIT Hyderabad. All rights reserved.
 </footer>
-
 
 <script src="script.js"></script>
 
 <script>
-if (window.lucide) lucide.createIcons();
+  const days = [
+    {
+      title: "DAY 1", theme: "TECHNICAL", date: "MARCH 31, 2026",
+      events: [
+        { time: "9:00 AM – 4:30 PM",  title: "ChipAI-NewGen",   category: "Technical",  venue: "OPAL Block Simulation Lab" },
+        { time: "10:00 AM – 1:00 PM", title: "BuildSphere",      category: "Technical",  venue: "SMB- 102, 103" },
+        { time: "10:00 AM onwards",   title: "AlgoHack 1.O",     category: "Technical",  venue: "SMB training Hall" },
+        { time: "10:00 AM – 1:00 PM", title: "Code & Escape",    category: "Technical",  venue: "Pearl Block, 1st floor" },
+        { time: "10:00 AM – 1:00 PM", title: "Chaos2Clarity",    category: "Technical",  venue: "SMB-207" },
+        { time: "10:00 AM – 4:00 PM", title: "Innoventure",      category: "Technical",  venue: "BFSI Hall" },
+        { time: "10:00 AM onwards",   title: "EmbedX",           category: "Technical",  venue: "SSH1" },
+        { time: "10:30 AM – 12:30 PM",title: "Raconteur",        category: "Technical",  venue: "JADE BLOCK" },
+        { time: "11:00 AM – 12:00 PM & 1:00 PM - 3:00 PM", title: "Hardware Hustle", category: "Technical", venue: "Emerald block, Simulation lab" },
+        { time: "11:00 AM – 1:30 PM", title: "Trash2Tech",       category: "Technical",  venue: "BFSI hall 2" },
+      ]
+    },
+    {
+      title: "DAY 2", theme: "CULTURAL & WORKSHOPS", date: "APRIL 01, 2026",
+      events: [
+        { time: "10:00 AM onwards",   title: "Battle of Bands",                         category: "Competition", venue: "Kalavedika" },
+        { time: "10:00 AM onwards",   title: "Svarautsav",                              category: "Competition", venue: "SMB Seminar Hall 4th floor" },
+        { time: "10:00 AM onwards",   title: "Thandav (Western) & Thandav (Classical)", category: "Competition", venue: "Main Stage" },
+        { time: "10:00 AM onwards",   title: "Chitraang 2.0",                           category: "Competition", venue: "SMB Training hall 4th floor" },
+        { time: "10:00 AM onwards",   title: "PicIt",                                   category: "Competition", venue: "Jade Block 104" },
+        { time: "10:00 AM onwards",   title: "AlgoHack 1.O",                            category: "Technical",   venue: "SMB training Hall" },
+        { time: "10:00 AM – 4:00 PM", title: "Pottery Paradise",                        category: "Workshop",    venue: "Beside KALA VEDIKA" },
+        { time: "10:00 AM – 4:00 PM", title: "Candle Making",                           category: "Workshop",    venue: "JADE BLOCK" },
+        { time: "10:00 AM – 4:00 PM", title: "Candle Holder Decoration",                category: "Workshop",    venue: "SMB Lawn" },
+        { time: "10:00 AM – 4:00 PM", title: "Fabric Painting",                         category: "Workshop",    venue: "DB Drawing Hall" },
+      ]
+    }
+  ];
+
+  const categoryClass = {
+    Technical:   "cat-technical",
+    Competition: "cat-competition",
+    Workshop:    "cat-workshop",
+    Keynote:     "cat-keynote",
+    Hackathon:   "cat-hackathon",
+  };
+
+  const clockSVG = `<svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
+  const mapSVG   = `<svg class="map-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+
+  let activeTab = 0;
+
+  function switchTab(index) {
+    activeTab = index;
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+    renderEvents();
+  }
+
+  function renderEvents() {
+    const container = document.getElementById('events-container');
+    const events = days[activeTab].events;
+    container.innerHTML = `<div class="space-y-8">${events.map((e, i) => `
+      <div class="event-row" style="animation-delay: ${i * 0.1}s">
+        <div class="event-time">${clockSVG} ${e.time}</div>
+        <div class="timeline-line">
+          <div class="timeline-dot"></div>
+          <div class="timeline-stem"></div>
+        </div>
+        <div class="event-card">
+          <span class="event-category ${categoryClass[e.category] || ''}">${e.category}</span>
+          <h4 class="event-title">${e.title}</h4>
+          <div class="event-venue">${mapSVG} ${e.venue}</div>
+        </div>
+      </div>
+    `).join('')}</div>`;
+  }
+
+  renderEvents();
 </script>
 
-</body>
-</html>                    src="assets/vishnu_logo.png" alt="BVRIT Hyderabad"
-                            class="h-10 md:h-20 w-auto object-contain"></div>
-                    <div class="hidden md:flex items-center" style="gap: 32px;"><a class="relative group" href="index.html"
-                            data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255); text-shadow: rgba(0, 217, 255, 0.3) 0px 0px 4px;">Home</span>
-                            <div class="absolute -bottom-1 left-0 right-0 h-0.5 bg-cyan-400" style="opacity: 1;"></div>
-                        </a><a class="relative group" href="events.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Events</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Events</span></a><a
-                            class="relative group" href="stalls.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Stalls</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Stalls</span></a><a
-                            class="relative group" href="schedule.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Schedule</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Schedule</span></a><a
-                            class="relative group" href="sponsors.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Sponsors</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Sponsors</span></a><a
-                            class="relative group" href="map.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Map</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Map</span></a><a
-                            class="relative group" href="contact.html" data-discover="true"><span
-                                class="relative font-['Orbitron'] text-[15px] font-semibold uppercase tracking-wider transition-all duration-300"
-                                style="letter-spacing: 0.08em; color: rgb(209, 213, 219); text-shadow: none;">Contact</span><span
-                                class="absolute inset-0 font-['Orbitron'] text-[15px] font-semibold uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                                aria-hidden="true"
-                                style="letter-spacing: 0.08em; color: rgb(0, 217, 255);">Contact</span></a></div><button
-                        class="md:hidden p-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-                        aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6">
-                            <line x1="4" x2="20" y1="12" y2="12"></line>
-                            <line x1="4" x2="20" y1="6" y2="6"></line>
-                            <line x1="4" x2="20" y1="18" y2="18"></line>
-                        </svg></button>
-                    <div class="flex items-center" style="opacity: 1; transform: none;"><img src="assets/sac_logo.png"
-                            alt="Student Affairs Council" class="h-10 md:h-20 w-auto object-contain"></div>
-                </div>
-            </div>
-        </nav>
-<div class="pt-32 text-center">
-    <h1 class="text-4xl font-bold">Schedule Page Content</h1>
-</div>
-<script src="script.js"></script>
 </body>
 </html>
