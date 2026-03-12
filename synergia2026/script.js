@@ -112,6 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===================== KICK OFF ===================== */
+
+  // Skip loader if user has already seen it this session
+  if (sessionStorage.getItem('loaderSeen')) {
+    if (loader) loader.style.display = "none";
+    if (root)   root.style.display   = "block";
+    return; // stop here — no terminal, no progress, no video
+  }
+
+  // First visit this session — mark it, then play the full intro
+  sessionStorage.setItem('loaderSeen', 'true');
   startTerminal();
   startProgress();
 
