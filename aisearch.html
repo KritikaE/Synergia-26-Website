@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Search - Synergia 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0015;
+            color: white;
+            padding: 2rem;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 2px solid #555;
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #00d9ff;
+        }
+
+        .results-dropdown {
+            position: absolute;
+            top: 110%;
+            left: 0;
+            right: 0;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 999;
+            display: none;
+        }
+
+        .results-dropdown.active {
+            display: block;
+        }
+
+        .result-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #222;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .result-item:hover {
+            background: #222;
+        }
+
+        .result-name {
+            font-weight: 600;
+            color: #00d9ff;
+            margin-bottom: 4px;
+        }
+
+        .result-category {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .no-results {
+            padding: 16px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input 
+            type="text" 
+            id="searchInput"
+            class="search-input" 
+            placeholder="Search stalls..."
+        >
+        <div id="resultsDropdown" class="results-dropdown"></div>
+    </div>
+
+    <script>
+        const STALLS = [
+            {id: "biryani", name: "BIRYANI", category: "Food", keywords: ["biriyani", "biryani", "rice", "chicken", "veg", "indian", "spicy", "aromatic"]},
+            {id: "chinese", name: "CHINESE", category: "Food", keywords: ["chinese", "noodles", "fried rice", "manchurian", "hakka", "spring rolls", "fast food"]},
+            {id: "burgers-sandwiches", name: "BURGERS & SANDWICHES", category: "Food", keywords: ["burger", "sandwich", "club sandwich", "veg burger", "chicken burger", "fast food"]},
+            {id: "twisters", name: "TWISTERS", category: "Food", keywords: ["twister", "wrap", "roll", "chicken wrap", "veg wrap", "paneer roll"]},
+            {id: "bbq", name: "BBQ", category: "Food", keywords: ["bbq", "barbecue", "grill", "grilled", "chicken", "skewers", "smoky"]},
+            {id: "momos", name: "MOMOS", category: "Food", keywords: ["momos", "dumplings", "steamed", "fried", "chicken", "veg", "paneer"]},
+            {id: "frozen-foods", name: "FROZEN FOODS", category: "Food", keywords: ["frozen", "ice", "pops", "cold"]},
+            {id: "goli-soda", name: "GOLI SODA", category: "Beverages", keywords: ["goli soda", "soda", "marble soda", "soft drink", "fizzy", "traditional", "lemon"]},
+            {id: "milkshakes", name: "MILKSHAKES", category: "Beverages", keywords: ["milkshake", "shake", "chocolate", "vanilla", "strawberry", "oreo", "thick shake", "cold"]},
+            {id: "soft-drinks", name: "SOFT DRINKS", category: "Beverages", keywords: ["soft drink", "coke", "pepsi", "sprite", "thums up", "cold drink"]},
+            {id: "water-bottles", name: "WATER BOTTLES", category: "Beverages", keywords: ["water", "mineral water", "packaged water", "hydration"]},
+            {id: "popcorn", name: "POPCORN", category: "Snacks", keywords: ["popcorn", "butter", "caramel", "cheese", "masala", "snacks"]},
+            {id: "panipuri", name: "PANIPURI", category: "Snacks", keywords: ["panipuri", "pani puri", "golgappa", "street food", "chat", "pav bhaji"]},
+            {id: "fritters", name: "FRITTERS", category: "Snacks", keywords: ["fritters", "pakora", "bhaji", "fried", "snacks", "crispy", "chutney"]},
+            {id: "chicken-pakodi", name: "CHICKEN PAKODI", category: "Snacks", keywords: ["chicken", "pakodi", "pakora", "fried", "spicy", "egg lollipop"]},
+            {id: "ice-gola", name: "ICE GOLA", category: "Desserts", keywords: ["ice gola", "gola", "shaved ice", "kala khatta", "ice", "cold", "syrup"]},
+            {id: "waffles", name: "WAFFLES", category: "Desserts", keywords: ["waffle", "belgian waffle", "chocolate", "nutella", "ice cream", "dessert"]},
+            {id: "brownies", name: "BROWNIES", category: "Desserts", keywords: ["brownie", "cupcake", "cake", "muffin", "chocolate", "baked", "dessert", "pastry"]},
+            {id: "chocolate-covered", name: "CHOCOLATE COVERED EVERYTHING", category: "Desserts", keywords: ["chocolate", "chocolate covered", "strawberry", "pretzel", "oreo", "dipped"]},
+            {id: "churros-cheesecake-donuts", name: "CHURROS, CHEESECAKE & DONUTS", category: "Desserts", keywords: ["churros", "cheesecake", "donuts", "biscoff", "nutella", "sweet"]},
+            {id: "ice-cream", name: "ICE CREAM", category: "Desserts", keywords: ["ice cream", "vanilla", "chocolate", "strawberry", "butterscotch", "cold"]},
+            {id: "dora-cakes", name: "DORA CAKES", category: "Desserts", keywords: ["dora cakes", "pancakes", "japanese", "red bean", "chocolate", "custard"]},
+            {id: "games-1", name: "GAMES - 1", category: "Activities", keywords: ["games", "activities", "fun", "wire buzz", "ball maze", "goal it"]},
+            {id: "games-2", name: "GAMES - 2", category: "Activities", keywords: ["games", "activities", "buzz wire", "balloon dart", "spin wheel", "ring game"]},
+            {id: "games-3", name: "GAMES - 3", category: "Activities", keywords: ["games", "activities", "foosball", "string hockey", "marbles", "cups stacking"]},
+            {id: "diy", name: "DIY", category: "Activities", keywords: ["diy", "craft", "art", "activities", "creative"]},
+            {id: "make-chip-bag", name: "MAKE YOUR OWN CHIP BAG", category: "Activities", keywords: ["chip bag", "chips", "custom", "make your own", "snacks", "diy"]},
+            {id: "accessories", name: "ACCESSORIES", category: "Activities", keywords: ["accessories", "jewelry", "rings", "chains", "bracelets", "fashion"]}
+        ];
+
+        let query = '';
+        let results = [];
+        let isOpen = false;
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsDropdown = document.getElementById('resultsDropdown');
+
+        function handleSearch(value) {
+            query = value;
+
+            if (!value.trim()) {
+                results = [];
+                renderResults();
+                return;
+            }
+
+            const q = value.toLowerCase();
+            const matches = STALLS.filter(stall =>
+                stall.name.toLowerCase().includes(q) ||
+                stall.category.toLowerCase().includes(q) ||
+                stall.keywords.some(k => k.includes(q))
+            );
+
+            results = matches;
+            renderResults();
+        }
+
+        function renderResults() {
+            if (results.length === 0 && query.trim()) {
+                resultsDropdown.innerHTML = '<div class="no-results">No stalls found</div>';
+                resultsDropdown.classList.add('active');
+            } else if (results.length > 0) {
+                resultsDropdown.innerHTML = results.map(r => `
+                    <div class="result-item" onclick="handleStallClick('${r.id}')">
+                        <div class="result-name">${r.name}</div>
+                        <div class="result-category">📍 ${r.category}</div>
+                    </div>
+                `).join('');
+                resultsDropdown.classList.add('active');
+            } else {
+                resultsDropdown.classList.remove('active');
+            }
+        }
+
+        function handleStallClick(stallId) {
+            // Redirect to stalls page with the stall ID
+            window.location.href = `stalls.html#${stallId}`;
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            handleSearch(e.target.value);
+        });
+
+        searchInput.addEventListener('focus', () => {
+            isOpen = true;
+            if (results.length > 0) {
+                resultsDropdown.classList.add('active');
+            }
+        });
+
+        searchInput.addEventListener('blur', () => {
+            setTimeout(() => {
+                isOpen = false;
+                resultsDropdown.classList.remove('active');
+            }, 200);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !resultsDropdown.contains(e.target)) {
+                resultsDropdown.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
