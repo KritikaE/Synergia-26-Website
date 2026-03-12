@@ -18,7 +18,7 @@ export const Schedule = () => {
         { time: "10:00 AM – 1:00 PM", title: "Chaos2Clarity", category: "Technical", venue: "SMB-207" },
         { time: "10:00 AM – 4:00 PM", title: "Innoventure", category: "Technical", venue: "BFSI Hall" },
         { time: "10:00 AM onwards", title: "EmbedX", category: "Technical", venue: "SSH1" },
-        { time: "10:30 AM – 12:30 PM", title: "Raconteur", category: "Technical", venue: "JADE BLOCK" },
+        { time: "10:30 AM – 12:30 PM", title: "Raconteur", category: "Technical", venue: "TBA" },
         { time: "11:00 AM – 12:00 PM & 1:00 PM - 3:00 PM", title: "Hardware Hustle", category: "Technical", venue: "Emerald block, Simulation lab" },
         { time: "11:00 AM – 1:30 PM", title: "Trash2Tech", category: "Technical", venue: "BFSI hall 2" },
       ],
@@ -42,7 +42,7 @@ export const Schedule = () => {
     },
   ];
 
-  const categoryColors: any = {
+  const categoryColors: Record<string, string> = {
     Keynote: "text-pink-500",
     Hackathon: "text-cyan-400",
     Competition: "text-yellow-400",
@@ -54,14 +54,14 @@ export const Schedule = () => {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.15
-      }
-    }
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const item = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 }
+    show: { opacity: 1, y: 0 },
   };
 
   return (
@@ -75,7 +75,7 @@ export const Schedule = () => {
         style={{
           fontFamily: "'Press Start 2P', cursive",
           color: "#a855f7",
-          textShadow: "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #7e22ce"
+          textShadow: "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #7e22ce",
         }}
       >
         SCHEDULE
@@ -124,10 +124,12 @@ export const Schedule = () => {
               </div>
 
               <div className="flex-1 bg-[#131313] p-6 rounded-lg border border-gray-800 shadow-lg">
-                <span className={`text-[10px] font-bold uppercase tracking-widest ${categoryColors[event.category]}`}>
+                <span className={`text-[10px] font-bold uppercase tracking-widest ${categoryColors[event.category] || "text-gray-400"}`}>
                   {event.category}
                 </span>
+
                 <h4 className="text-base font-semibold mt-2">{event.title}</h4>
+
                 <div className="flex items-center gap-2 mt-2 text-xs text-gray-400">
                   <MapPin size={14} /> {event.venue}
                 </div>
