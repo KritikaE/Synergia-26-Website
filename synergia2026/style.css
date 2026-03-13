@@ -71,6 +71,10 @@ body {
 #loader {
   text-align: center;
   transition: opacity 0.5s ease;
+  /* FIX: Hidden by default — script.js shows it only on first visit.
+     This prevents the 1-second flash on reload because CSS applies
+     before JS runs, so the loader is never painted on subsequent visits. */
+  display: none;
 }
 #cursor {
   animation: blink 1s infinite;
@@ -123,6 +127,15 @@ body {
   display: none;
 }
 #root {
+  display: none;
+}
+
+/* ===================== MOBILE MENU ===================== */
+#mobileMenu {
+  /* Smooth slide-down open/close */
+  transition: opacity 0.2s ease;
+}
+#mobileMenu.hidden {
   display: none;
 }
 
