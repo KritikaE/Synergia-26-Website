@@ -12,6 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const video        = document.getElementById("butterflyVideo");
   const flash        = document.getElementById("flash");
 
+  function revealMainSiteImmediately() {
+    if (loader) loader.style.display = "none";
+    if (intro) intro.style.display = "none";
+    if (root) root.style.display = "block";
+  }
+
+  function getSessionStorageSafe() {
+    try {
+      return window.sessionStorage;
+    } catch (_) {
+      return null;
+    }
+  }
+
   /* ===================== HAMBURGER MENU =====================
      Registered BEFORE the early-return check so the menu works
      on every page on every visit (not just first visit).
@@ -74,15 +88,26 @@ document.addEventListener("DOMContentLoaded", () => {
      on reload we never display the loader at all — CSS already hides
      it by default, so there is zero flash. */
 
-  if (sessionStorage.getItem('loaderSeen')) {
-    // Returning visit this session: skip straight to main site
-    if (root) root.style.display = "block";
+  const safeSessionStorage = getSessionStorageSafe();
+  const loaderSeen = safeSessionStorage?.getItem("loaderSeen") === "true";
+
+  if (loaderSeen) {
+    // Returning visit this session: skip straight to main site.
+    revealMainSiteImmediately();
     return; // stop here — no terminal, no progress, no video
   }
 
   // First visit this session — reveal the loader, then start the sequence
-  sessionStorage.setItem('loaderSeen', 'true');
+  safeSessionStorage?.setItem("loaderSeen", "true");
   if (loader) loader.style.display = "flex";
+
+  // Mobile-safe fallback: never stay stuck at static 0% if something blocks the sequence.
+  setTimeout(() => {
+    const rootHidden = root && root.style.display !== "block";
+    if (rootHidden) {
+      revealMainSiteImmediately();
+    }
+  }, 6000);
 
   /* ===================== TYPEWRITER ===================== */
   const lines = [
