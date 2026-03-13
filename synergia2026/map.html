@@ -112,18 +112,5 @@ class="h-10 md:h-20 w-auto object-contain">
 <script>
 if (window.lucide) lucide.createIcons();
 </script>
-
-
-<script>
-  /* ===== HAMBURGER MENU ===== */
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-    mobileMenu.querySelectorAll("a").forEach(link =>
-      link.addEventListener("click", () => mobileMenu.classList.add("hidden"))
-    );
-  }
-</script>
 </body>
 </html>
