@@ -12,6 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const video        = document.getElementById("butterflyVideo");
   const flash        = document.getElementById("flash");
 
+  /* ===================== HAMBURGER MENU =====================
+     Registered BEFORE the early-return check so the menu works
+     on every page on every visit (not just first visit).
+  ===================================================================== */
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+
   /* ===================== KICK OFF =====================
      Check sessionStorage FIRST (before showing anything) so that
      on reload we never display the loader at all — CSS already hides
@@ -129,25 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===================== START SEQUENCE ===================== */
   startTerminal();
   startProgress();
-
-  /* ===================== HAMBURGER MENU =====================
-     FIX: The button had no id and there was no click handler.
-     Now toggling #mobileMenu visibility on button click.
-  ===================================================================== */
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-
-    // Close the menu automatically when any nav link is tapped
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-      });
-    });
-  }
 
 });
