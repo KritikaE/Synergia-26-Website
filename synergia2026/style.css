@@ -157,3 +157,11 @@ body {
 #flash.flash-in {
   transition: opacity 0.12s ease-in;
 }
+
+/* ===================== MOBILE PERFORMANCE ===================== */
+@media (max-width: 768px) {
+  /* Reduce constant compositing work from scanline overlay on mobile. */
+  .scanlines::after {
+    opacity: 0.25;
+  }
+}

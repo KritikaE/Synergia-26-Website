@@ -29,7 +29,45 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenu.classList.add("hidden");
       });
     });
+
+    // Close menu when tapping outside on touch devices.
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (
+        !mobileMenu.classList.contains("hidden") &&
+        target instanceof Node &&
+        !mobileMenu.contains(target) &&
+        !menuToggle.contains(target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
   }
+
+  /* ===================== MOBILE HARDENING =====================
+     Reduce media/animation load on small screens for smoother scrolling.
+  ===================================================================== */
+  function hardenMobileHome() {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (!isMobile) return;
+
+    // Keep marquee lightweight on phones: avoid decoding duplicate videos.
+    const stripVideos = document.querySelectorAll(".animate-scroll video");
+    stripVideos.forEach((vid, index) => {
+      if (!(vid instanceof HTMLVideoElement)) return;
+      vid.preload = "metadata";
+      if (index >= 5) {
+        vid.style.display = "none";
+      }
+    });
+
+  }
+
+  // Non-home pages do not contain loader/intro/root. Exit safely after menu setup.
+  const isHomePage = Boolean(loader && intro && root && video);
+  if (!isHomePage) return;
+
+  hardenMobileHome();
 
   /* ===================== KICK OFF =====================
      Check sessionStorage FIRST (before showing anything) so that
@@ -54,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function typeLine(text, element, speed = 30) {
+    if (!element) return;
     let i = 0;
     const interval = setInterval(() => {
       element.textContent = text.slice(0, i);
