@@ -12,6 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const video        = document.getElementById("butterflyVideo");
   const flash        = document.getElementById("flash");
 
+  /* ===================== KICK OFF =====================
+     Check sessionStorage FIRST (before showing anything) so that
+     on reload we never display the loader at all — CSS already hides
+     it by default, so there is zero flash. */
+
+  if (sessionStorage.getItem('loaderSeen')) {
+    // Returning visit this session: skip straight to main site
+    if (root) root.style.display = "block";
+    return; // stop here — no terminal, no progress, no video
+  }
+
+  // First visit this session — reveal the loader, then start the sequence
+  sessionStorage.setItem('loaderSeen', 'true');
+  if (loader) loader.style.display = "flex";
+
   /* ===================== TYPEWRITER ===================== */
   const lines = [
     "> SAC_PROTOCOL ACTIVE...",
@@ -111,18 +126,28 @@ document.addEventListener("DOMContentLoaded", () => {
     video.addEventListener("ended", showMainSite);
   }
 
-  /* ===================== KICK OFF ===================== */
-
-  // Skip loader if user has already seen it this session
-  if (sessionStorage.getItem('loaderSeen')) {
-    if (loader) loader.style.display = "none";
-    if (root)   root.style.display   = "block";
-    return; // stop here — no terminal, no progress, no video
-  }
-
-  // First visit this session — mark it, then play the full intro
-  sessionStorage.setItem('loaderSeen', 'true');
+  /* ===================== START SEQUENCE ===================== */
   startTerminal();
   startProgress();
+
+  /* ===================== HAMBURGER MENU =====================
+     FIX: The button had no id and there was no click handler.
+     Now toggling #mobileMenu visibility on button click.
+  ===================================================================== */
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Close the menu automatically when any nav link is tapped
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
 
 });
