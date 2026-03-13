@@ -172,41 +172,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 40);
   }
 
-  /* ===================== FLASH + REVEAL =====================
-     Timeline:
-       t=0ms   → .flash-in added, opacity → 1   (fast 0.12s ease-in)
-       t=120ms → .flash-in removed              (CSS switches to 0.4s ease-out)
-       t=150ms → opacity → 0, swap DOM          (fade-out begins while content swaps)
-                 intro hidden, root shown
-  ===================================================================== */
+  /* ===================== SMOOTH FADE TRANSITION ===================== */
   function showMainSite() {
-    if (!flash) {
-      // Fallback: no flash element found, swap immediately
-      if (intro) intro.style.display = "none";
-      if (root)  root.style.display  = "block";
-      return;
+    // Fade out the intro video slowly
+    if (intro) {
+      intro.style.transition = "opacity 1.5s ease-out";
+      intro.style.opacity = "0";
     }
 
-    // FLASH IN — fast punch
-    flash.classList.add("flash-in");
-    flash.style.opacity = "1";
-
-    // Switch CSS transition to slow fade-out
+    // After fade completes, swap content and fade in main site
     setTimeout(() => {
-      flash.classList.remove("flash-in");
-    }, 120);
-
-    // Swap content while flash is fading out
-    setTimeout(() => {
-      flash.style.opacity = "0";
       if (intro) intro.style.display = "none";
-      if (root)  root.style.display  = "block";
-    }, 150);
+      if (root) {
+        root.style.display = "block";
+        root.style.opacity = "0";
+        root.style.transition = "opacity 1.5s ease-in";
+        
+        // Trigger fade in
+        setTimeout(() => {
+          root.style.opacity = "1";
+        }, 50);
+      }
+    }, 1500);
   }
 
   /* ===================== VIDEO END ===================== */
   if (video) {
-    video.addEventListener("ended", showMainSite);
+    video.addEventListener("ended", () => {
+      // Wait 1 second after video ends before transitioning to main site
+      setTimeout(showMainSite, 1000);
+    });
   }
 
   /* ===================== START SEQUENCE ===================== */
