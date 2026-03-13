@@ -35,37 +35,108 @@
     }
 
     .tab-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      max-width: 48rem;
+      display: flex;
+      gap: 0.75rem;
+      max-width: 56rem;
       margin: 0 auto 4rem;
-    }
-
-    @media (min-width: 768px) {
-      .tab-grid { grid-template-columns: 1fr 1fr; }
+      align-items: stretch;
     }
 
     .tab-btn {
-      padding: 1.5rem;
-      border: 2px solid #1f2937;
-      background: #131313;
+      flex: 1;
+      min-width: 0;
+      padding: 1rem 0.5rem 1.1rem;
+      background: rgba(0, 0, 0, 0.45);
       color: white;
       cursor: pointer;
       transition: all 0.3s;
-      text-align: left;
+      text-align: center;
+      position: relative;
     }
 
-    .tab-btn:hover { border-color: #4b5563; }
+    .tab-btn:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
 
     .tab-btn.active {
-      border-color: #ec4899;
-      background: rgba(131, 24, 67, 0.2);
-      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+      background: rgba(0, 0, 0, 0.8);
     }
 
-    .tab-btn .day-label { font-size: 0.75rem; letter-spacing: 0.2em; }
-    .tab-btn .day-theme { font-size: 1.125rem; font-weight: 700; margin-top: 0.25rem; }
+    .tab-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 6px;
+      height: 3px;
+      border-radius: 9999px;
+    }
+
+    .tab-btn .day-label {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .tab-btn .day-theme {
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-top: 0.35rem;
+      line-height: 1.15;
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      word-break: break-word;
+    }
+
+    .day1-tab {
+      border: 2px solid #38bdf8;
+    }
+
+    .day1-tab .day-theme {
+      color: #38bdf8;
+    }
+
+    .day1-tab:hover {
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .day1-tab.active {
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+    }
+
+    .day1-tab.active::after {
+      background: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+    }
+
+    .day2-tab {
+      border: 2px solid #22c55e;
+    }
+
+    .day2-tab .day-theme {
+      color: #22c55e;
+    }
+
+    .day2-tab:hover {
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
+    }
+
+    .day2-tab.active {
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.3);
+    }
+
+    .day2-tab.active::after {
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    @media (min-width: 640px) {
+      .tab-btn { padding: 1.2rem 0.9rem 1.35rem; }
+      .tab-btn .day-label { font-size: 0.72rem; }
+      .tab-btn .day-theme { font-size: 1.02rem; }
+    }
 
     .events-container { max-width: 56rem; margin: 0 auto; }
 
@@ -249,11 +320,11 @@ class="h-10 md:h-20 w-auto object-contain">
 
     <h2 class="schedule-title text-3xl sm:text-4xl md:text-5xl mt-8" style="color: rgb(255, 20, 147); text-shadow: rgba(255,20,147,0.8) 0px 0px 20px, rgba(255,20,147,0.4) 0px 0px 40px;">SCHEDULE</h2>
     <div class="tab-grid" id="tab-grid">
-      <button class="tab-btn active" onclick="switchTab(0)">
+      <button class="tab-btn day1-tab pixel-corners active" onclick="switchTab(0)">
         <span class="day-label">DAY 1</span>
         <div class="day-theme">TECHNICAL</div>
       </button>
-      <button class="tab-btn" onclick="switchTab(1)">
+      <button class="tab-btn day2-tab pixel-corners" onclick="switchTab(1)">
         <span class="day-label">DAY 2</span>
         <div class="day-theme">CULTURAL &amp; WORKSHOPS</div>
       </button>

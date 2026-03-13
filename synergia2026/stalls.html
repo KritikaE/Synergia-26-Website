@@ -165,7 +165,63 @@ const STALLS = [
 
 /* ================= WIRE UP "VIEW DETAILS" BUTTONS ================= */
 // Each static card has a button inside it; find by card id and attach onclick
+function normalizeStallCards() {
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
+  const minHeight = isMobile ? '260px' : '300px';
+
+  document.querySelectorAll('#stalls .grid.grid-cols-2').forEach(grid => {
+    grid.style.alignItems = 'stretch';
+  });
+
+  STALLS.forEach(stall => {
+    const card = document.getElementById(stall.id);
+    if (!card) return;
+
+    card.style.display = card.style.display === 'none' ? 'none' : 'flex';
+    card.style.flexDirection = 'column';
+    card.style.justifyContent = 'flex-start';
+    card.style.height = '100%';
+    card.style.minHeight = minHeight;
+    card.style.overflow = 'hidden';
+
+    const iconWrap = card.querySelector('div');
+    if (iconWrap) {
+      iconWrap.style.flexShrink = '0';
+    }
+
+    const title = card.querySelector('h3');
+    if (title) {
+      title.style.lineHeight = '1.2';
+      title.style.wordBreak = 'break-word';
+      title.style.overflowWrap = 'anywhere';
+      title.style.minHeight = isMobile ? '2.8rem' : '3.5rem';
+      title.style.display = 'flex';
+      title.style.alignItems = 'center';
+    }
+
+    const desc = card.querySelector('p');
+    if (desc) {
+      desc.style.lineHeight = '1.35';
+      desc.style.wordBreak = 'break-word';
+      desc.style.overflowWrap = 'anywhere';
+      desc.style.flexGrow = '1';
+      desc.style.minHeight = isMobile ? '2.6rem' : '3rem';
+    }
+
+    const btn = card.querySelector('button');
+    if (btn) {
+      btn.style.marginTop = 'auto';
+      btn.style.width = '100%';
+      btn.style.whiteSpace = 'normal';
+      btn.style.lineHeight = '1.2';
+      btn.style.textAlign = 'center';
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  normalizeStallCards();
+
   STALLS.forEach(stall => {
     const card = document.getElementById(stall.id);
     if (!card) return;
@@ -177,6 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
     card.onclick = function() { openModal(stall); };
   });
 });
+
+window.addEventListener('resize', normalizeStallCards);
 
 /* ================= SEARCH ================= */
 document.getElementById('searchInput').addEventListener('input', function() {
@@ -198,6 +256,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
       if (el) { el.style.display = ''; }
     });
     showAllSections();
+    normalizeStallCards();
     resultEl.textContent = '';
     return;
   }
@@ -231,6 +290,8 @@ document.getElementById('searchInput').addEventListener('input', function() {
   resultEl.textContent = count > 0
     ? `Found ${count} stall${count !== 1 ? 's' : ''} matching "${this.value.trim()}"`
     : `No stalls found for "${this.value.trim()}"`;
+
+  normalizeStallCards();
 });
 
 function showAllSections() {
