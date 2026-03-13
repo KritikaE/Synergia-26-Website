@@ -143,7 +143,7 @@ class="h-10 md:h-20 w-auto object-contain">
       </div>
 
       <!-- Category Tabs -->
-      <div class="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16 justify-center items-center" id="tab-buttons">
+      <div class="flex flex-row gap-2 sm:gap-4 mb-12 sm:mb-16 justify-center items-center w-full" id="tab-buttons">
         <!-- rendered by JS -->
       </div>
 
@@ -374,9 +374,9 @@ function renderTabs() {
     return `
       <button
         onclick="switchCategory(${i})"
-        class="w-full sm:flex-1 max-w-xs py-8 sm:py-10 px-6 pixel-corners transition-all duration-300 hover:bg-black/60 border-2 flex items-center justify-center relative"
+        class="flex-1 min-w-0 sm:flex-1 max-w-xs py-4 sm:py-10 px-1 sm:px-6 pixel-corners transition-all duration-300 hover:bg-black/60 border-2 flex items-center justify-center relative"
         style="background:${isActive ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0.4)'}; border-color:${cat.color};">
-        <div class="font-['Press_Start_2P'] text-xl sm:text-2xl md:text-3xl"
+        <div class="font-['Orbitron'] sm:font-['Press_Start_2P'] text-[11px] sm:text-2xl md:text-3xl text-center leading-tight whitespace-normal break-words px-1"
           style="color:${cat.color}; text-shadow:${isActive ? `0 0 10px ${cat.color}` : 'none'};">
           ${cat.label}
         </div>
@@ -393,27 +393,27 @@ function renderGrid() {
   const filtered = events.filter(e => e.category === categories[activeCategory].label);
 
   grid.innerHTML = filtered.map((ev, i) => `
-    <div class="event-card bg-black/60 backdrop-blur-sm p-6 sm:p-8 pixel-corners cursor-pointer transition-all duration-300 hover:bg-black/80 border-2"
+    <div class="event-card bg-black/60 backdrop-blur-sm p-4 sm:p-8 pixel-corners cursor-pointer transition-all duration-300 hover:bg-black/80 border-2 overflow-hidden h-full flex flex-col"
       style="border-color:${ev.color}60; animation-delay:${i * 0.05}s;"
       onclick="openModal('${ev.id}')">
-      <div class="mb-4 sm:mb-6 w-full h-64 overflow-hidden pixel-corners bg-black">
+      <div class="mb-4 sm:mb-6 w-full h-40 sm:h-64 overflow-hidden pixel-corners bg-black">
         <img src="${ev.poster}" alt="${ev.title}" class="w-full h-full object-contain transition-transform duration-300"
           onerror="this.style.display='none'">
       </div>
-      <h3 class="font-['Orbitron'] text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4" style="color:${ev.color};">
+      <h3 class="font-['Orbitron'] text-base sm:text-xl md:text-2xl mb-3 sm:mb-4 leading-tight break-words min-h-[2.75rem] sm:min-h-[3.5rem]" style="color:${ev.color};">
         ${ev.title}
       </h3>
-      <p class="font-['Rajdhani'] text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">${ev.description}</p>
-      <div class="flex flex-col gap-2">
+      <p class="font-['Rajdhani'] text-xs sm:text-base text-gray-300 mb-4 sm:mb-6 break-words leading-snug min-h-[2.5rem] sm:min-h-[3rem]">${ev.description}</p>
+      <div class="mt-auto flex flex-col gap-2">
         <button
-          class="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
+          class="neon-button font-['Orbitron'] text-[10px] sm:text-sm w-full px-2 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300"
           style="color:${ev.color}; border-color:${ev.color};"
           onclick="event.stopPropagation(); openModal('${ev.id}')">
           VIEW DETAILS
         </button>
         ${ev.registrationLink ? `
         <a href="${ev.registrationLink}" target="_blank" rel="noopener noreferrer"
-          class="neon-button font-['Orbitron'] text-xs sm:text-sm px-4 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300 text-center"
+          class="neon-button font-['Orbitron'] text-[10px] sm:text-sm w-full px-2 sm:px-6 py-2 border-2 pixel-corners hover:scale-105 transition-all duration-300 text-center"
           style="color:#00ff00; border-color:#00ff00; text-shadow:0 0 5px #00ff00;"
           onclick="event.stopPropagation()">
           REGISTER NOW
