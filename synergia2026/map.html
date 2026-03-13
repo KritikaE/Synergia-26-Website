@@ -49,6 +49,14 @@ class="h-10 md:h-20 w-auto object-contain">
 
 </div>
 
+<button id="menuToggle" class="md:hidden p-2 text-cyan-400 hover:text-cyan-300 transition-colors" aria-label="Toggle menu">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6">
+<line x1="4" x2="20" y1="12" y2="12"></line>
+<line x1="4" x2="20" y1="6" y2="6"></line>
+<line x1="4" x2="20" y1="18" y2="18"></line>
+</svg>
+</button>
+
 <div class="flex items-center">
 <img src="assets/sac_logo.png"
 class="h-10 md:h-20 w-auto object-contain">
@@ -59,6 +67,18 @@ class="h-10 md:h-20 w-auto object-contain">
 
 </nav>
 
+<!-- ================= MOBILE MENU ================= -->
+<div id="mobileMenu" class="hidden fixed top-16 left-0 right-0 z-40 bg-black/95 backdrop-blur-sm border-b border-cyan-400/30 md:hidden">
+    <div class="flex flex-col px-6 py-5 space-y-5">
+        <a href="index.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Home</a>
+        <a href="events.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Events</a>
+        <a href="stalls.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Stalls</a>
+        <a href="schedule.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Schedule</a>
+        <a href="sponsors.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Sponsors</a>
+        <a href="map.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Map</a>
+        <a href="contact.html" class="font-['Orbitron'] text-sm uppercase tracking-wider text-gray-300 hover:text-cyan-400 transition-colors" style="letter-spacing:0.08em;">Contact</a>
+    </div>
+</div>
 
 <!-- ================= PAGE CONTENT ================= -->
 
@@ -93,5 +113,17 @@ class="h-10 md:h-20 w-auto object-contain">
 if (window.lucide) lucide.createIcons();
 </script>
 
+
+<script>
+  /* ===== HAMBURGER MENU ===== */
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+    mobileMenu.querySelectorAll("a").forEach(link =>
+      link.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+    );
+  }
+</script>
 </body>
 </html>
