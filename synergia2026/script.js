@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const root         = document.getElementById("root");
   const video        = document.getElementById("butterflyVideo");
   const flash        = document.getElementById("flash");
+  let introStarted = false;
 
   function revealMainSiteImmediately() {
     if (loader) loader.style.display = "none";
@@ -101,10 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
   safeSessionStorage?.setItem("loaderSeen", "true");
   if (loader) loader.style.display = "flex";
 
-  // Mobile-safe fallback: never stay stuck at static 0% if something blocks the sequence.
+  // Mobile-safe fallback: avoid being stuck on loader 0%.
+  // Do NOT skip if intro video has already started.
   setTimeout(() => {
     const rootHidden = root && root.style.display !== "block";
-    if (rootHidden) {
+    if (rootHidden && !introStarted) {
       revealMainSiteImmediately();
     }
   }, 6000);
@@ -156,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Show intro panel
             if (intro) intro.style.display = "flex";
+            introStarted = true;
 
             // Play video — controlled here, NOT via autoplay attr
             if (video) {
