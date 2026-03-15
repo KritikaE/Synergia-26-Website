@@ -1,11 +1,30 @@
+# Synergia 2026 Website
 
-  # Synergia Fest Website UI
+Official website for **Synergia 2026**, the annual tech and cultural fest of **BVRIT Hyderabad**.
 
-  This is a code bundle for Synergia Fest Website UI. The original project is available at https://www.figma.com/design/oIzt8oaHrcN9S3qQ1MonF1/Synergia-Fest-Website-UI.
+## 🚀 Features
 
-  ## Running the code
+* Event showcase
+* Stalls directory with search
+* Responsive design
+* Smooth navigation
+* Modern UI using TailwindCSS
 
-  Run `npm i` to install the dependencies.
+## 🛠 Tech Stack
 
-  Run `npm run dev` to start the development server.
-  
+* HTML
+* Tailwind CSS
+* JavaScript
+
+## 📂 Project Structure
+
+```
+index.html       → Main landing page  
+stalls.html      → Stalls directory  
+script.js        → Interactive functionality  
+assets/          → Images, videos, icons  
+```
+
+## 📜 License
+
+This project is for the **Synergia 2026 event at BVRIT Hyderabad**.
