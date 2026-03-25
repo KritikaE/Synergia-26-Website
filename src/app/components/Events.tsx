@@ -8,22 +8,22 @@ import raconteurPoster from "../../assets/events_web/raconteur.jpeg";
 import trashtotechPoster from "../../assets/events_web/trashtotech.jpeg";
 import innoventurePoster from "../../assets/events_web/innoventure.jpeg";
 import algohack10Poster from "../../assets/events_web/algohack10.jpeg";
-import embedxPoster from "../../assets/events_web/embedx.jpeg";
-import codeescape from "/src/assets/events_web/Code&Escape.jpg";
-import Chaos2Clarity from "/src/assets/events_web/Chaos2Clarity.jpg";
+import embedxPoster from "../../assets/events_web/EmbedX.jpeg";
+import codeescape from "../../assets/events_web/Code&Escape.jpg";
+import Chaos2Clarity from "../../assets/events_web/Chaos2Clarity.jpeg";
 
 
 import SvarautsavPoster from "../../assets/events_web/SvarautsavPoster.jpeg";
 import PicitPoster from "../../assets/events_web/PicitPoster.jpeg";
 import ChitraangPoster from "../../assets/events_web/ChitraangPoster.jpeg";
 import BattleOfBandsPoster from "../../assets/events_web/BattleOfBandsPoster.jpeg";
-import ThandavClassical from "/src/assets/events_web/Thandav (Classical).jpg";
-import ThandavWestern from "/src/assets/events_web/Thandav (Western).jpg";
+import ThandavClassical from "../../assets/events_web/ThandavClassical.jpeg";
+import ThandavWestern from "../../assets/events_web/Thandav (Western).jpg";
 
-import Pottery from "/src/assets/events_web/Pottery Workshop.jpg";
-import Painting from "/src/assets/events_web/Painting.jpg";
-import CandleMaking from "/src/assets/events_web/Candle Making Workshop.jpg";
-import CandleHolder from "/src/assets/events_web/CandleHolderDecorationWorkshop.jpg";
+import Pottery from "../../assets/events_web/Pottery.jpeg";
+import Painting from "../../assets/events_web/FabricPainting.jpeg";
+import CandleMaking from "../../assets/events_web/CandleMakingWorkshop.jpeg";
+import CandleHolder from "../../assets/events_web/CandleHolderDecoration.jpeg";
 import photoboothPoster from "/src/assets/events_web/photobooth.jpeg";
 
 export interface EventData {

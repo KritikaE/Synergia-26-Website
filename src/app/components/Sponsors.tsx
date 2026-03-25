@@ -4,8 +4,10 @@ import { motion } from 'motion/react';
 import beingZeroLogo from '../../assets/Sponsors/Being_Zero.jfif';
 import smartInterviewsLogo from '../../assets/Sponsors/Smart_Interviews.png';
 import studentTribeLogo from '../../assets/Sponsors/Student_Tribe.png';
-import varmaFoundationLogo from '../../assets/Sponsors/Varma_Foundation.jpeg'
-import ProdigyLogo from '/src/assets/Sponsors/Prodigy.jpeg';
+import varmaFoundationLogo from '../../assets/Sponsors/Varma_Foundation.jpeg';
+import algorandLogo from '../../assets/Sponsors/Algorand Sponsor.png';
+import sigglobaleduLogo from '../../assets/Sponsors/SIG Global Edu Sponsor.png';
+//import ProdigyLogo from '/src/assets/Sponsors/Prodigy.jpeg';
 
 export function Sponsors() {
   // Updated sponsor list with images
@@ -14,25 +16,31 @@ export function Sponsors() {
     { name: 'SmartInterviews', logo: smartInterviewsLogo, color: '#00ffff' },
     { name: 'Student Tribe', logo: studentTribeLogo, color: '#ff1493' },
     { name: 'Varma Foundation', logo: varmaFoundationLogo, color: '#ff00ff' },
+    { name: 'Algorand', logo: algorandLogo, color: '#00ffff' },
+    { name: 'SIGGlobalEdu', logo: sigglobaleduLogo, color: '#ff1493' }
     //{ name: 'Prodigy', logo: ProdigyLogo, color: '#00ffff' }, 
   ];
 
   const SponsorCard = ({ name, logo, color }: { name: string; logo: string | null; color: string }) => (
     <motion.div
       whileHover={{ scale: 1.05, y: -5 }}
-      className="bg-black/60 backdrop-blur-sm p-8 sm:p-10 md:p-12 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80 flex items-center justify-center min-h-[180px] border-2"
+      className="bg-black/60 backdrop-blur-sm p-6 pixel-corners group cursor-pointer transition-all duration-300 hover:bg-black/80 flex items-center justify-center h-[250px] border-2"
       style={{ borderColor: color }}
     >
       <div className="text-center w-full">
         {logo ? (
-          <img 
-            src={logo} 
-            alt={name}
-            className="w-full h-auto max-h-32 object-contain group-hover:scale-110 transition-transform duration-300"
-            style={{
-              filter: 'brightness(1.1) contrast(1.1)',
-            }}
-          />
+        <img 
+          src={logo} 
+          alt={name}
+          className={`group-hover:scale-110 transition-transform duration-300 ${
+           name === "SIGGlobalEdu"
+              ? "w-full h-full object-contain"
+              : "w-full h-auto max-h-32 object-contain"
+          }`}
+          style={{
+          filter: 'brightness(1.1) contrast(1.1)',
+          }}
+        />
         ) : (
           <div
             className="font-['Orbitron'] text-xl sm:text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-300"
